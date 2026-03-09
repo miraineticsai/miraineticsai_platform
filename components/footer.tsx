@@ -7,6 +7,7 @@ const footerLinks = [
     title: "Solutions",
     links: [
       { name: "Advanced Automation", href: "/solutions#automation" },
+      { name: "Web & Mobile Development", href: "/solutions#web-mobile" },
       { name: "Revenue Management", href: "/solutions#rcm" },
       { name: "Data Analytics", href: "/solutions#analytics" },
     ],
@@ -50,25 +51,42 @@ export default function Footer() {
               <p>Phone: +91 8446049402 | +91 83780 36177</p>
               <p>Pune, Maharashtra, India</p>
             </div>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github className="h-5 w-5" />
-              </Link>
-            </div>
+          <div className="flex space-x-4">
+  <Link
+    href="https://twitter.com"
+    aria-label="Visit our Twitter page"
+    className="text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
+  >
+    <Twitter className="h-5 w-5" aria-hidden="true" />
+    <span className="sr-only">Twitter</span>
+  </Link>
+
+  <Link
+    href="https://linkedin.com"
+    aria-label="Visit our LinkedIn page"
+    className="text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
+  >
+    <Linkedin className="h-5 w-5" aria-hidden="true" />
+    <span className="sr-only">LinkedIn</span>
+  </Link>
+
+  <Link
+    href="https://github.com"
+    aria-label="Visit our GitHub repository"
+    className="text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
+  >
+    <Github className="h-5 w-5" aria-hidden="true" />
+    <span className="sr-only">GitHub</span>
+  </Link>
+</div>
           </div>
 
           {/* Links Columns */}
           {footerLinks.map((column) => (
             <div key={column.title} className="space-y-4">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-foreground">
-                {column.title}
-              </h4>
+             <p className="text-sm font-bold uppercase tracking-wider text-foreground">
+  {column.title}
+</p>
               <ul className="space-y-2">
                 {column.links.map((link) => (
                   <li key={link.name}>

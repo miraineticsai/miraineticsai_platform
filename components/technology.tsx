@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, ShieldCheck, Database, BarChart3, Zap, Layers } from "lucide-react";
+import { Cpu, ShieldCheck, Database, BarChart3, Zap, Layers, Globe } from "lucide-react";
 
 const technologies = [
   {
@@ -10,17 +10,24 @@ const technologies = [
     icon: <Cpu className="h-6 w-6 text-primary" />,
     features: ["Intelligent Extraction", "Process Optimization", "Scalable Infrastructure"],
   },
-  {
-    title: "Revenue Cycle Management",
-    description: "We optimize operational workflows by automating complex revenue processes, improving resource utilization, and reducing overhead.",
-    icon: <BarChart3 className="h-6 w-6 text-secondary" />,
-    features: ["Automated Reconciliation", "Denial Management", "Resource Optimization"],
+    {
+    title: "Web & Mobile Development",
+    description: "We deliver top-level web and mobile application development services, creating intuitive and scalable digital experiences across all platforms.",
+    icon: <Globe className="h-6 w-6 text-secondary" />,
+    features: ["Custom Web Apps", "Native Mobile Apps", "UI/UX Excellence"],
   },
+ 
   {
     title: "Data Analytics & Integration",
     description: "We connect fragmented systems and transform data into actionable intelligence using proprietary integration technologies.",
     icon: <Database className="h-6 w-6 text-primary" />,
     features: ["Actionable Insights", "Proprietary Connectors", "Unified Dashboard"],
+  },
+   {
+    title: "Revenue Cycle Management",
+    description: "We optimize operational workflows by automating complex revenue processes, improving resource utilization, and reducing overhead.",
+    icon: <BarChart3 className="h-6 w-6 text-secondary" />,
+    features: ["Automated Reconciliation", "Denial Management", "Resource Optimization"],
   },
 ];
 
@@ -98,7 +105,7 @@ export default function Technology() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.title}

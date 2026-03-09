@@ -64,8 +64,7 @@ export default function Hero() {
                       <Cpu className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold">Automation Engine</h4>
-                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">v2.4.0 High-Active</p>
+<p className="text-sm font-bold">Automation Engine</p>                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">v2.4.0 High-Active</p>
                     </div>
                   </div>
                   <div className="flex gap-2">

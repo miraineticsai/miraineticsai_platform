@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
-import { Cpu, BarChart3, Database, ArrowRight } from "lucide-react";
+import { Cpu, BarChart3, Database, ArrowRight, Globe } from "lucide-react";
 
 const solutions = [
   {
@@ -16,14 +16,14 @@ const solutions = [
     ],
   },
   {
-    id: "rcm",
-    title: "Revenue Cycle Management",
-    description: "Automate the entire revenue lifecycle from intake to reconciliation, reducing denials and accelerating cash flow.",
-    icon: <BarChart3 className="h-10 w-10 text-secondary" />,
+    id: "web-mobile",
+    title: "Web & Mobile Development",
+    description: "We deliver top-level web and mobile application development services, creating intuitive and scalable digital experiences across all platforms.",
+    icon: <Globe className="h-10 w-10 text-secondary" />,
     details: [
-      "Automated eligibility and claims processing.",
-      "AI-driven denial prediction and remediation.",
-      "Unified payment reconciliation across all channels.",
+      "Custom Web Applications tailored for enterprise scalability.",
+      "Native Mobile Apps engineered for high performance.",
+      "UI/UX Excellence driving user engagement.",
     ],
   },
   {
@@ -35,6 +35,17 @@ const solutions = [
       "Seamless integration with legacy enterprise systems.",
       "Predictive analytics for operational forecasting.",
       "Interactive AI-driven dashboards for real-time insights.",
+    ],
+  },
+  {
+    id: "rcm",
+    title: "Revenue Cycle Management",
+    description: "Automate the entire revenue lifecycle from intake to reconciliation, reducing denials and accelerating cash flow.",
+    icon: <BarChart3 className="h-10 w-10 text-secondary" />,
+    details: [
+      "Automated eligibility and claims processing.",
+      "AI-driven denial prediction and remediation.",
+      "Unified payment reconciliation across all channels.",
     ],
   },
 ];
