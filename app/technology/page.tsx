@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Explore the multi-layered AI technology architecture powering MiraiNeticsAI — including our automation engine, AI decision layer, and enterprise integration APIs.",
   alternates: {
-    canonical: "https://mirainetics.ai/technology",
+    canonical: "https://miraineticsai.com/technology",
   },
   openGraph: {
     title: "AI Technology Architecture | MiraiNeticsAI",
     description:
       "Explore the multi-layered AI technology architecture powering MiraiNeticsAI.",
-    url: "https://mirainetics.ai/technology",
+    url: "https://miraineticsai.com/technology",
   },
 };
 

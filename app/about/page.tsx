@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "Learn about MiraiNeticsAI — an AI automation and software development company focused on eliminating manual workflows through intelligent systems.",
   alternates: {
-    canonical: "https://mirainetics.ai/about",
+    canonical: "https://miraineticsai.com/about",
   },
   openGraph: {
     title: "About MiraiNeticsAI | Our Mission & Values",
     description:
       "Learn about MiraiNeticsAI — an AI automation and software development company focused on eliminating manual workflows.",
-    url: "https://mirainetics.ai/about",
+    url: "https://miraineticsai.com/about",
   },
 };
 

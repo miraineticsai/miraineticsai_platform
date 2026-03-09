@@ -13,14 +13,14 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mirainetics.ai"),
+  metadataBase: new URL("https://miraineticsai.com"),
   title: "MiraiNeticsAI | Automating the Future of Intelligent Workflows",
   description: "MiraiNeticsAI builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.",
   keywords: ["AI Automation", "Workflow Intelligence", "Enterprise AI", "Robotic Process Automation", "MiraiNeticsAI"],
   openGraph: {
     title: "MiraiNeticsAI",
     description: "Automating the Future of Intelligent Workflows",
-    url: "https://mirainetics.ai",
+    url: "https://miraineticsai.com",
     siteName: "MiraiNeticsAI",
     images: [
       {
@@ -58,8 +58,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "MiraiNeticsAI",
-              url: "https://mirainetics.ai",
-              logo: "https://mirainetics.ai/logo.png",
+              url: "https://miraineticsai.com",
+              logo: "https://miraineticsai.com/logo.png",
               description:
                 "MiraiNeticsAI builds intelligent automation systems, software development solutions, and data analytics platforms for enterprise operations.",
               contactPoint: {
