@@ -114,3 +114,5 @@ The easiest way to deploy this project is via [Vercel](https://vercel.com/):
 ---
 
 © 2026 MiraiNeticsAI. All rights reserved.
+
+
