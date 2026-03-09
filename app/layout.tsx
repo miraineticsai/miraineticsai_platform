@@ -51,6 +51,37 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased mesh-background min-h-screen text-foreground`}
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "MiraiNeticsAI",
+              url: "https://mirainetics.ai",
+              logo: "https://mirainetics.ai/logo.png",
+              description:
+                "MiraiNeticsAI builds intelligent automation systems, software development solutions, and data analytics platforms for enterprise operations.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                email: "miraineticsai@gmail.com",
+                telephone: "+91-8446049402",
+                contactType: "sales",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Pune",
+                addressRegion: "Maharashtra",
+                addressCountry: "IN",
+              },
+              sameAs: [
+                "https://twitter.com/miraineticsai",
+                "https://linkedin.com/company/miraineticsai",
+                "https://github.com/miraineticsai",
+              ],
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

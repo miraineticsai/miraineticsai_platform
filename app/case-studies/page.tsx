@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
 import { ArrowRight, CheckCircle2, TrendingUp, Clock, ShieldCheck } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Case Studies | MiraiNeticsAI",
+  description:
+    "Real-world case studies showing how MiraiNeticsAI automation and AI solutions have transformed operations in healthcare, finance, and insurance.",
+  alternates: {
+    canonical: "https://mirainetics.ai/case-studies",
+  },
+  openGraph: {
+    title: "Case Studies | MiraiNeticsAI",
+    description:
+      "Real-world case studies showing how MiraiNeticsAI solutions have transformed enterprise operations.",
+    url: "https://mirainetics.ai/case-studies",
+  },
+};
 
 const caseStudies = [
   {

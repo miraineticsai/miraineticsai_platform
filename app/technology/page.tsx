@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
 import { Cpu, Zap, Layers, ShieldCheck, Database, Repeat } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "AI Technology Architecture | MiraiNeticsAI",
+  description:
+    "Explore the multi-layered AI technology architecture powering MiraiNeticsAI — including our automation engine, AI decision layer, and enterprise integration APIs.",
+  alternates: {
+    canonical: "https://mirainetics.ai/technology",
+  },
+  openGraph: {
+    title: "AI Technology Architecture | MiraiNeticsAI",
+    description:
+      "Explore the multi-layered AI technology architecture powering MiraiNeticsAI.",
+    url: "https://mirainetics.ai/technology",
+  },
+};
 
 const techStack = [
   {

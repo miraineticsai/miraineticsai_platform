@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
+
+export const metadata: Metadata = {
+  title: "About MiraiNeticsAI | Our Mission & Values",
+  description:
+    "Learn about MiraiNeticsAI — an AI automation and software development company focused on eliminating manual workflows through intelligent systems.",
+  alternates: {
+    canonical: "https://mirainetics.ai/about",
+  },
+  openGraph: {
+    title: "About MiraiNeticsAI | Our Mission & Values",
+    description:
+      "Learn about MiraiNeticsAI — an AI automation and software development company focused on eliminating manual workflows.",
+    url: "https://mirainetics.ai/about",
+  },
+};
 
 export default function AboutPage() {
   return (

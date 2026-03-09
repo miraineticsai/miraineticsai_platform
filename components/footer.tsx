@@ -6,10 +6,10 @@ const footerLinks = [
   {
     title: "Solutions",
     links: [
-      { name: "Advanced Automation", href: "/solutions#automation" },
-      { name: "Web & Mobile Development", href: "/solutions#web-mobile" },
-      { name: "Revenue Management", href: "/solutions#rcm" },
-      { name: "Data Analytics", href: "/solutions#analytics" },
+      { name: "Advanced Automation", href: "/solutions/advanced-automation" },
+      { name: "Web & Mobile Development", href: "/solutions/web-mobile-development" },
+      { name: "Revenue Management", href: "/solutions/revenue-cycle-management" },
+      { name: "Data Analytics", href: "/solutions/data-analytics" },
     ],
   },
   {
