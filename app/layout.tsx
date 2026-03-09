@@ -49,6 +49,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased mesh-background min-h-screen text-foreground`}
+        suppressHydrationWarning
       >
         {children}
       </body>
