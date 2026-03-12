@@ -38,11 +38,17 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center space-x-2">
-              <Cpu className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                MiraiNeticsAI
-              </span>
-            </Link>
+  <Image
+    src="/logo.svg"
+    alt="Mirainetics Logo"
+    width={48}
+    height={48}
+    className="animate-pulse"
+  />
+  <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+    Mirainetics
+  </span>
+</Link>
             <p className="text-muted-foreground max-w-sm">
               Automating the Future of Intelligent Workflows. We build enterprise-grade AI systems that unlock operational efficiency.
             </p>
@@ -105,7 +111,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} MiraiNeticsAI Inc. All rights reserved.
+            © {new Date().getFullYear()} Mirainetics Inc. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link href="#" className="text-xs text-muted-foreground hover:text-primary">

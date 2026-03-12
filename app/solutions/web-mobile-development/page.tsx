@@ -13,14 +13,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Web & Mobile Development Services | MiraiNeticsAI",
+  title: "Web & Mobile Development Services | Mirainetics",
   description:
     "Custom web and mobile development services including scalable web applications, modern frontend architectures, native mobile apps, and cloud-based systems.",
   alternates: {
     canonical: "https://miraineticsai.com/solutions/web-mobile-development",
   },
   openGraph: {
-    title: "Web & Mobile Development Services | MiraiNeticsAI",
+    title: "Web & Mobile Development Services | Mirainetics",
     description:
       "Custom web and mobile development services including scalable web applications, modern frontend architectures, and cloud-based systems.",
     url: "https://miraineticsai.com/solutions/web-mobile-development",
@@ -79,7 +79,7 @@ export default function WebMobileDevelopmentPage() {
     name: "Web & Mobile Development Services",
     provider: {
       "@type": "Organization",
-      name: "MiraiNeticsAI",
+      name: "Mirainetics",
       url: "https://miraineticsai.com",
     },
     description:

@@ -4,16 +4,16 @@ import Footer from "@/components/footer";
 import CTA from "@/components/cta";
 
 export const metadata: Metadata = {
-  title: "About MiraiNeticsAI | Our Mission & Values",
+  title: "About Mirainetics | Our Mission & Values",
   description:
-    "Learn about MiraiNeticsAI — an AI automation and software development company focused on eliminating manual workflows through intelligent systems.",
+    "Learn about Mirainetics — an AI automation and software development company focused on eliminating manual workflows through intelligent systems.",
   alternates: {
     canonical: "https://miraineticsai.com/about",
   },
   openGraph: {
-    title: "About MiraiNeticsAI | Our Mission & Values",
+    title: "About Mirainetics | Our Mission & Values",
     description:
-      "Learn about MiraiNeticsAI — an AI automation and software development company focused on eliminating manual workflows.",
+      "Learn about Mirainetics — an AI automation and software development company focused on eliminating manual workflows.",
     url: "https://miraineticsai.com/about",
   },
 };
@@ -29,7 +29,7 @@ export default function AboutPage() {
               Our <span className="text-primary">Mission</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              MiraiNeticsAI builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.
+              Mirainetics builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
             <div className="glass p-12 rounded-[2.5rem] border-white/10">
               <h2 className="text-3xl font-display font-bold mb-6">More Than Just Automation</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                MiraiNeticsAI combines deep expertise with AI-driven solutions to optimize business operations and revenue systems.
+                Mirainetics combines deep expertise with AI-driven solutions to optimize business operations and revenue systems.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 From intelligent automation to strategic AI consulting, we help organizations navigate the future of operational efficiency with confidence.

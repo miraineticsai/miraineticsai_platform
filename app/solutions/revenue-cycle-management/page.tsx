@@ -13,14 +13,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Revenue Cycle Management Services | MiraiNeticsAI",
+  title: "Revenue Cycle Management Services | Mirainetics",
   description:
     "AI-powered revenue cycle management services including automated eligibility verification, claims processing, denial management, and payment reconciliation.",
   alternates: {
     canonical: "https://miraineticsai.com/solutions/revenue-cycle-management",
   },
   openGraph: {
-    title: "Revenue Cycle Management Services | MiraiNeticsAI",
+    title: "Revenue Cycle Management Services | Mirainetics",
     description:
       "AI-powered revenue cycle management services including automated eligibility verification, claims processing, and denial management.",
     url: "https://miraineticsai.com/solutions/revenue-cycle-management",
@@ -79,7 +79,7 @@ export default function RevenueCycleManagementPage() {
     name: "Revenue Cycle Management Services",
     provider: {
       "@type": "Organization",
-      name: "MiraiNeticsAI",
+      name: "Mirainetics",
       url: "https://miraineticsai.com",
     },
     description:

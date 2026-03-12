@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "MiraiNeticsAI transformed our operations. What used to take weeks now takes hours. Their AI-driven approach is truly revolutionary.",
+    quote: "Mirainetics transformed our operations. What used to take weeks now takes hours. Their AI-driven approach is truly revolutionary.",
     author: "Dr. Sarah Chen",
     role: "Healthcare CIO",
     company: "Global Health Systems",

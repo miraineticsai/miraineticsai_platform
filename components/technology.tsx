@@ -6,7 +6,7 @@ import { Cpu, ShieldCheck, Database, BarChart3, Zap, Layers, Globe } from "lucid
 const technologies = [
   {
     title: "Advanced Automation",
-    description: "MiraiNeticsAI leverages cutting-edge AI systems and robotic process automation to eliminate manual workflows and increase operational efficiency.",
+    description: "Mirainetics leverages cutting-edge AI systems and robotic process automation to eliminate manual workflows and increase operational efficiency.",
     icon: <Cpu className="h-6 w-6 text-primary" />,
     features: ["Intelligent Extraction", "Process Optimization", "Scalable Infrastructure"],
   },

@@ -5,16 +5,16 @@ import CTA from "@/components/cta";
 import { ArrowRight, CheckCircle2, TrendingUp, Clock, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Case Studies | MiraiNeticsAI",
+  title: "Case Studies | Mirainetics",
   description:
-    "Real-world case studies showing how MiraiNeticsAI automation and AI solutions have transformed operations in healthcare, finance, and insurance.",
+    "Real-world case studies showing how Mirainetics automation and AI solutions have transformed operations in healthcare, finance, and insurance.",
   alternates: {
     canonical: "https://miraineticsai.com/case-studies",
   },
   openGraph: {
-    title: "Case Studies | MiraiNeticsAI",
+    title: "Case Studies | Mirainetics",
     description:
-      "Real-world case studies showing how MiraiNeticsAI solutions have transformed enterprise operations.",
+      "Real-world case studies showing how Mirainetics solutions have transformed enterprise operations.",
     url: "https://miraineticsai.com/case-studies",
   },
 };
@@ -25,7 +25,7 @@ const caseStudies = [
     client: "St. Jude's Medical Center",
     domain: "Healthcare",
     challenge: "Manual patient eligibility verification was leading to a 15% denial rate and long wait times.",
-    solution: "Implemented MiraiNeticsAI's Advanced Automation engine for real-time eligibility checks.",
+    solution: "Implemented Mirainetics's Advanced Automation engine for real-time eligibility checks.",
     impact: "75% reduction in denials and $2M annual savings in administrative overhead.",
     icon: <ShieldCheck className="h-8 w-8 text-primary" />,
     metrics: ["98% Accuracy", "Instant Processing", "SOC2 Compliant"]
@@ -62,7 +62,7 @@ export default function CaseStudiesPage() {
             Success <span className="text-primary">Stories</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real-world impact across diverse domains. See how MiraiNeticsAI transforms enterprise operations.
+            Real-world impact across diverse domains. See how Mirainetics transforms enterprise operations.
           </p>
         </section>
 

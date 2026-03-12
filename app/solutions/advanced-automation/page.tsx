@@ -13,14 +13,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Advanced Automation Services | MiraiNeticsAI",
+  title: "Advanced Automation Services | Mirainetics",
   description:
     "Enterprise automation services using AI-driven process orchestration, intelligent data extraction, and self-healing bot infrastructure for complex workflows.",
   alternates: {
     canonical: "https://miraineticsai.com/solutions/advanced-automation",
   },
   openGraph: {
-    title: "Advanced Automation Services | MiraiNeticsAI",
+    title: "Advanced Automation Services | Mirainetics",
     description:
       "Enterprise automation services using AI-driven process orchestration, intelligent data extraction, and self-healing bot infrastructure.",
     url: "https://miraineticsai.com/solutions/advanced-automation",
@@ -79,7 +79,7 @@ export default function AdvancedAutomationPage() {
     name: "Advanced Automation Services",
     provider: {
       "@type": "Organization",
-      name: "MiraiNeticsAI",
+      name: "Mirainetics",
       url: "https://miraineticsai.com",
     },
     description:

@@ -13,14 +13,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Data Analytics Services | MiraiNeticsAI",
+  title: "Data Analytics Services | Mirainetics",
   description:
     "Enterprise data analytics and integration services including predictive analytics, real-time dashboards, legacy system integration, and AI-driven business intelligence.",
   alternates: {
     canonical: "https://miraineticsai.com/solutions/data-analytics",
   },
   openGraph: {
-    title: "Data Analytics Services | MiraiNeticsAI",
+    title: "Data Analytics Services | Mirainetics",
     description:
       "Enterprise data analytics and integration services including predictive analytics, real-time dashboards, and AI-driven business intelligence.",
     url: "https://miraineticsai.com/solutions/data-analytics",
@@ -79,7 +79,7 @@ export default function DataAnalyticsPage() {
     name: "Data Analytics Services",
     provider: {
       "@type": "Organization",
-      name: "MiraiNeticsAI",
+      name: "Mirainetics",
       url: "https://miraineticsai.com",
     },
     description:

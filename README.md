@@ -1,16 +1,16 @@
-# MiraiNeticsAI
+# Mirainetics
 
 **Automating the Future of Intelligent Workflows**
 
-MiraiNeticsAI is a premium, futuristic, and enterprise-grade company website for a cutting-edge AI startup. It is built with high-performance technologies to provide a visually stunning and seamless user experience.
+Mirainetics is a premium, futuristic, and enterprise-grade company website for a cutting-edge AI startup. It is built with high-performance technologies to provide a visually stunning and seamless user experience.
 
 ---
 
 ## 🚀 Vision & Mission
 
-**Mission:** MiraiNeticsAI builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.
+**Mission:** Mirainetics builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.
 
-**Core Idea:** More than just automation — MiraiNeticsAI combines deep expertise with AI-driven solutions to optimize business operations and revenue systems.
+**Core Idea:** More than just automation — Mirainetics combines deep expertise with AI-driven solutions to optimize business operations and revenue systems.
 
 ---
 
@@ -113,4 +113,4 @@ The easiest way to deploy this project is via [Vercel](https://vercel.com/):
 
 ---
 
-© 2026 MiraiNeticsAI. All rights reserved.
+© 2026 Mirainetics. All rights reserved.

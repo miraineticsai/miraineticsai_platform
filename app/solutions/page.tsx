@@ -6,14 +6,14 @@ import CTA from "@/components/cta";
 import { Cpu, BarChart3, Database, ArrowRight, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Technology Solutions | MiraiNeticsAI",
+  title: "Technology Solutions | Mirainetics",
   description:
     "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
   alternates: {
     canonical: "https://miraineticsai.com/solutions",
   },
   openGraph: {
-    title: "Technology Solutions | MiraiNeticsAI",
+    title: "Technology Solutions | Mirainetics",
     description:
       "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
     url: "https://miraineticsai.com/solutions",
@@ -85,7 +85,7 @@ export default function SolutionsPage() {
     url: "https://miraineticsai.com/solutions",
     provider: {
       "@type": "Organization",
-      name: "MiraiNeticsAI",
+      name: "Mirainetics",
       url: "https://miraineticsai.com",
     },
   };

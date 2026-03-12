@@ -14,17 +14,20 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://miraineticsai.com"),
-  title: "MiraiNeticsAI | Automating the Future of Intelligent Workflows",
-  description: "MiraiNeticsAI builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.",
-  keywords: ["AI Automation", "Workflow Intelligence", "Enterprise AI", "Robotic Process Automation", "MiraiNeticsAI"],
+  icons: {
+    icon: "/logo.svg",
+  },
+  title: "Mirainetics | Automating the Future of Intelligent Workflows",
+  description: "Mirainetics builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.",
+  keywords: ["AI Automation", "Workflow Intelligence", "Enterprise AI", "Robotic Process Automation", "Mirainetics"],
   openGraph: {
-    title: "MiraiNeticsAI",
+    title: "Mirainetics",
     description: "Automating the Future of Intelligent Workflows",
     url: "https://miraineticsai.com",
-    siteName: "MiraiNeticsAI",
+    siteName: "Mirainetics",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og_image.png",
         width: 1200,
         height: 630,
       },
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MiraiNeticsAI",
+    title: "Mirainetics",
     description: "Automating the Future of Intelligent Workflows",
     images: ["/og-image.png"],
   },
@@ -57,11 +60,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "MiraiNeticsAI",
+              name: "Mirainetics",
               url: "https://miraineticsai.com",
               logo: "https://miraineticsai.com/logo.png",
               description:
-                "MiraiNeticsAI builds intelligent automation systems, software development solutions, and data analytics platforms for enterprise operations.",
+                "Mirainetics builds intelligent automation systems, software development solutions, and data analytics platforms for enterprise operations.",
               contactPoint: {
                 "@type": "ContactPoint",
                 email: "miraineticsai@gmail.com",

@@ -5,14 +5,14 @@ import CTA from "@/components/cta";
 import { Stethoscope, Banknote, ShieldCheck, ShoppingBag, Truck, Factory, Globe, Headphones, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Industries We Serve | MiraiNeticsAI",
+  title: "Industries We Serve | Mirainetics",
   description:
     "AI automation and software solutions for healthcare, finance, insurance, and logistics industries. Domain-specific systems built for enterprise scale.",
   alternates: {
     canonical: "https://miraineticsai.com/industries",
   },
   openGraph: {
-    title: "Industries We Serve | MiraiNeticsAI",
+    title: "Industries We Serve | Mirainetics",
     description:
       "AI automation and software solutions for healthcare, finance, insurance, and logistics industries.",
     url: "https://miraineticsai.com/industries",
