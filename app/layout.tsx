@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Mirainetics",
     images: [
       {
-        url: "/og_image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
       },
