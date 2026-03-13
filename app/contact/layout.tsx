@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Mirainetics for AI automation, software development, and data analytics solutions. Request a demo or send us a commercial inquiry.",
   alternates: {
-    canonical: "https://miraineticsai.com/contact",
+    canonical: "https://mirainetics.com/contact",
   },
   openGraph: {
     title: "Contact Us | Mirainetics",
     description:
       "Get in touch with Mirainetics for AI automation, software development, and data analytics solutions.",
-    url: "https://miraineticsai.com/contact",
+    url: "https://mirainetics.com/contact",
   },
 };
 

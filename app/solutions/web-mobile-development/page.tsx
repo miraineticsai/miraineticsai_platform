@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "Custom web and mobile development services including scalable web applications, modern frontend architectures, native mobile apps, and cloud-based systems.",
   alternates: {
-    canonical: "https://miraineticsai.com/solutions/web-mobile-development",
+    canonical: "https://mirainetics.com/solutions/web-mobile-development",
   },
   openGraph: {
     title: "Web & Mobile Development Services | Mirainetics",
     description:
       "Custom web and mobile development services including scalable web applications, modern frontend architectures, and cloud-based systems.",
-    url: "https://miraineticsai.com/solutions/web-mobile-development",
+    url: "https://mirainetics.com/solutions/web-mobile-development",
   },
 };
 
@@ -80,12 +80,12 @@ export default function WebMobileDevelopmentPage() {
     provider: {
       "@type": "Organization",
       name: "Mirainetics",
-      url: "https://miraineticsai.com",
+      url: "https://mirainetics.com",
     },
     description:
       "Custom web and mobile development services including scalable web applications, modern frontend architectures, native mobile apps, and cloud-based systems.",
     serviceType: "Software Development",
-    url: "https://miraineticsai.com/solutions/web-mobile-development",
+    url: "https://mirainetics.com/solutions/web-mobile-development",
   };
 
   const faqJsonLd = {

@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "AI-powered revenue cycle management services including automated eligibility verification, claims processing, denial management, and payment reconciliation.",
   alternates: {
-    canonical: "https://miraineticsai.com/solutions/revenue-cycle-management",
+    canonical: "https://mirainetics.com/solutions/revenue-cycle-management",
   },
   openGraph: {
     title: "Revenue Cycle Management Services | Mirainetics",
     description:
       "AI-powered revenue cycle management services including automated eligibility verification, claims processing, and denial management.",
-    url: "https://miraineticsai.com/solutions/revenue-cycle-management",
+    url: "https://mirainetics.com/solutions/revenue-cycle-management",
   },
 };
 
@@ -80,12 +80,12 @@ export default function RevenueCycleManagementPage() {
     provider: {
       "@type": "Organization",
       name: "Mirainetics",
-      url: "https://miraineticsai.com",
+      url: "https://mirainetics.com",
     },
     description:
       "AI-powered revenue cycle management services including automated eligibility verification, claims processing, denial management, and payment reconciliation.",
     serviceType: "Revenue Cycle Management",
-    url: "https://miraineticsai.com/solutions/revenue-cycle-management",
+    url: "https://mirainetics.com/solutions/revenue-cycle-management",
   };
 
   const faqJsonLd = {

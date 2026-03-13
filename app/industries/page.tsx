@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "AI automation and software solutions for healthcare, finance, insurance, and logistics industries. Domain-specific systems built for enterprise scale.",
   alternates: {
-    canonical: "https://miraineticsai.com/industries",
+    canonical: "https://mirainetics.com/industries",
   },
   openGraph: {
     title: "Industries We Serve | Mirainetics",
     description:
       "AI automation and software solutions for healthcare, finance, insurance, and logistics industries.",
-    url: "https://miraineticsai.com/industries",
+    url: "https://mirainetics.com/industries",
   },
 };
 

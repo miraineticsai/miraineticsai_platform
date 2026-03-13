@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "Enterprise automation services using AI-driven process orchestration, intelligent data extraction, and self-healing bot infrastructure for complex workflows.",
   alternates: {
-    canonical: "https://miraineticsai.com/solutions/advanced-automation",
+    canonical: "https://mirainetics.com/solutions/advanced-automation",
   },
   openGraph: {
     title: "Advanced Automation Services | Mirainetics",
     description:
       "Enterprise automation services using AI-driven process orchestration, intelligent data extraction, and self-healing bot infrastructure.",
-    url: "https://miraineticsai.com/solutions/advanced-automation",
+    url: "https://mirainetics.com/solutions/advanced-automation",
   },
 };
 
@@ -80,12 +80,12 @@ export default function AdvancedAutomationPage() {
     provider: {
       "@type": "Organization",
       name: "Mirainetics",
-      url: "https://miraineticsai.com",
+      url: "https://mirainetics.com",
     },
     description:
       "Enterprise automation services using AI-driven process orchestration, intelligent data extraction, and self-healing bot infrastructure.",
     serviceType: "AI Automation",
-    url: "https://miraineticsai.com/solutions/advanced-automation",
+    url: "https://mirainetics.com/solutions/advanced-automation",
   };
 
   const faqJsonLd = {

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://miraineticsai.com/sitemap.xml",
+    sitemap: "https://mirainetics.com/sitemap.xml",
   };
 }

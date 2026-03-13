@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Real-world case studies showing how Mirainetics automation and AI solutions have transformed operations in healthcare, finance, and insurance.",
   alternates: {
-    canonical: "https://miraineticsai.com/case-studies",
+    canonical: "https://mirainetics.com/case-studies",
   },
   openGraph: {
     title: "Case Studies | Mirainetics",
     description:
       "Real-world case studies showing how Mirainetics solutions have transformed enterprise operations.",
-    url: "https://miraineticsai.com/case-studies",
+    url: "https://mirainetics.com/case-studies",
   },
 };
 

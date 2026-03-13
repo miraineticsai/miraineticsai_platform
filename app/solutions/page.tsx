@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
   alternates: {
-    canonical: "https://miraineticsai.com/solutions",
+    canonical: "https://mirainetics.com/solutions",
   },
   openGraph: {
     title: "Technology Solutions | Mirainetics",
     description:
       "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
-    url: "https://miraineticsai.com/solutions",
+    url: "https://mirainetics.com/solutions",
   },
 };
 
@@ -82,11 +82,11 @@ export default function SolutionsPage() {
     name: "Technology Solutions",
     description:
       "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
-    url: "https://miraineticsai.com/solutions",
+    url: "https://mirainetics.com/solutions",
     provider: {
       "@type": "Organization",
       name: "Mirainetics",
-      url: "https://miraineticsai.com",
+      url: "https://mirainetics.com",
     },
   };
 

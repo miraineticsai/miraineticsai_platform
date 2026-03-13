@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "Enterprise data analytics and integration services including predictive analytics, real-time dashboards, legacy system integration, and AI-driven business intelligence.",
   alternates: {
-    canonical: "https://miraineticsai.com/solutions/data-analytics",
+    canonical: "https://mirainetics.com/solutions/data-analytics",
   },
   openGraph: {
     title: "Data Analytics Services | Mirainetics",
     description:
       "Enterprise data analytics and integration services including predictive analytics, real-time dashboards, and AI-driven business intelligence.",
-    url: "https://miraineticsai.com/solutions/data-analytics",
+    url: "https://mirainetics.com/solutions/data-analytics",
   },
 };
 
@@ -80,12 +80,12 @@ export default function DataAnalyticsPage() {
     provider: {
       "@type": "Organization",
       name: "Mirainetics",
-      url: "https://miraineticsai.com",
+      url: "https://mirainetics.com",
     },
     description:
       "Enterprise data analytics and integration services including predictive analytics, real-time dashboards, legacy system integration, and AI-driven business intelligence.",
     serviceType: "Data Analytics",
-    url: "https://miraineticsai.com/solutions/data-analytics",
+    url: "https://mirainetics.com/solutions/data-analytics",
   };
 
   const faqJsonLd = {
