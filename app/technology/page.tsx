@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
 import { Cpu, Zap, Layers, ShieldCheck, Database, Repeat } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "AI Technology Architecture | Mirainetics",
+  description:
+    "Explore the multi-layered AI technology architecture powering Mirainetics — including our automation engine, AI decision layer, and enterprise integration APIs.",
+  alternates: {
+    canonical: "https://mirainetics.com/technology",
+  },
+  openGraph: {
+    title: "AI Technology Architecture | Mirainetics",
+    description:
+      "Explore the multi-layered AI technology architecture powering Mirainetics.",
+    url: "https://mirainetics.com/technology",
+  },
+};
 
 const techStack = [
   {
@@ -34,7 +50,7 @@ export default function TechnologyPage() {
                 <span className="text-primary">Technology Architecture</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                The MiraiNeticsAI platform is built on a multi-layered architecture designed for speed, accuracy, and enterprise-grade security.
+                The Mirainetics platform is built on a multi-layered architecture designed for speed, accuracy, and enterprise-grade security.
               </p>
               <div className="space-y-6">
                 {techStack.map((tech) => (

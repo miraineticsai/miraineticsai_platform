@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     // In a real production app, you would use a service like Resend or SendGrid here
     // Example with Resend:
     // await resend.emails.send({
-    //   from: 'contact@mirainetics.ai',
+    //   from: 'contact@miraineticsai.com',
     //   to: 'miraineticsai@gmail.com',
     //   subject: `New Contact Form Submission from ${name}`,
     //   text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nInquiry: ${help}\nMessage: ${message}`

@@ -34,12 +34,19 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center space-x-2">
-            <Cpu className="h-8 w-8 text-primary animate-pulse" />
-            <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-              MiraiNeticsAI
-            </span>
-          </Link>
+
+<Link href="/" className="flex items-center space-x-2">
+  <Image
+    src="/logo.svg"
+    alt="Mirainetics Logo"
+    width={48}
+    height={48}
+    className="animate-pulse"
+  />
+  <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+    Mirainetics
+  </span>
+</Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
@@ -64,6 +71,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label="Open menu"
               className="text-foreground hover:text-primary transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

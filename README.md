@@ -1,16 +1,16 @@
-# MiraiNeticsAI
+# Mirainetics
 
 **Automating the Future of Intelligent Workflows**
 
-MiraiNeticsAI is a premium, futuristic, and enterprise-grade company website for a cutting-edge AI startup. It is built with high-performance technologies to provide a visually stunning and seamless user experience.
+Mirainetics is a premium, futuristic, and enterprise-grade company website for a cutting-edge AI startup. It is built with high-performance technologies to provide a visually stunning and seamless user experience.
 
 ---
 
 ## 🚀 Vision & Mission
 
-**Mission:** MiraiNeticsAI builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.
+**Mission:** Mirainetics builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.
 
-**Core Idea:** More than just automation — MiraiNeticsAI combines deep expertise with AI-driven solutions to optimize business operations and revenue systems.
+**Core Idea:** More than just automation — Mirainetics combines deep expertise with AI-driven solutions to optimize business operations and revenue systems.
 
 ---
 
@@ -46,7 +46,7 @@ MiraiNeticsAI is a premium, futuristic, and enterprise-grade company website for
 ### Prerequisites
 
 - Node.js 18.x or later
-- npm or yarn
+- pnpm or yarn
 
 ### Installation
 
@@ -58,12 +58,12 @@ MiraiNeticsAI is a premium, futuristic, and enterprise-grade company website for
 
 2. **Install dependencies:**
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. **Run the development server:**
    ```bash
-   npm run dev
+   pnpm run dev
    ```
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -100,7 +100,7 @@ The easiest way to deploy this project is via [Vercel](https://vercel.com/):
    - Import the `miraineticsai` repository.
 3. **Configure Settings:**
    - Vercel will automatically detect Next.js.
-   - Ensure the building command is `npm run build`.
+   - Ensure the building command is `pnpm run build`.
 4. **Deploy:** Click **"Deploy"**. Your site will be live on a production-ready URL!
 
 ---
@@ -113,4 +113,4 @@ The easiest way to deploy this project is via [Vercel](https://vercel.com/):
 
 ---
 
-© 2026 MiraiNeticsAI. All rights reserved.
+© 2026 Mirainetics. All rights reserved.

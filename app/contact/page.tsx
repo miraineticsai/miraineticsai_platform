@@ -132,7 +132,7 @@ function ContactForm() {
         <input 
           name="company"
           type="text" 
-          placeholder="MiraiNeticsAI"
+          placeholder="Mirainetics"
           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
         />
       </div>
