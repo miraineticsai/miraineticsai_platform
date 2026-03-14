@@ -114,10 +114,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Mirainetics Inc. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link href="#" className="text-xs text-muted-foreground hover:text-primary">
+            <Link href="/privacy-policy" className="text-xs text-muted-foreground hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-xs text-muted-foreground hover:text-primary">
+            <Link href="/terms-of-service" className="text-xs text-muted-foreground hover:text-primary">
               Terms of Service
             </Link>
           </div>
