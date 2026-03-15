@@ -28,7 +28,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Email</p>
-                    <p className="text-lg font-medium text-primary">miraineticsai@gmail.com</p>
+                    <p className="text-lg font-medium text-primary">contact@mirainetics.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-6">
@@ -92,7 +92,7 @@ function ContactForm() {
       <div className="text-center py-12">
         <Send className="h-16 w-16 text-primary mx-auto mb-6 animate-bounce" />
         <h3 className="text-2xl font-display font-bold mb-4">Message Sent!</h3>
-        <p className="text-muted-foreground">Thank you for reaching out. We will get back to you at miraineticsai@gmail.com shortly.</p>
+        <p className="text-muted-foreground">Thank you for reaching out. We will get back to you at contact@mirainetics.com shortly.</p>
         <button 
           onClick={() => setStatus("idle")}
           className="mt-8 text-primary font-bold hover:underline"
