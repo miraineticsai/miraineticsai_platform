@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'Privacy Policy | MiraiNeticsAI',
-  description: 'Privacy Policy for MiraiNeticsAI - Automating the Future of Intelligent Workflows.',
+  title: 'Privacy Policy | Mirainetics',
+  description: 'Privacy Policy for Mirainetics - Automating the Future of Intelligent Workflows.',
 };
 
 export default function PrivacyPolicy() {
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white tracking-tight">1. Introduction</h2>
               <p>
-                Welcome to MiraiNeticsAI ("Company", "we", "our", "us"). We respect your privacy and are committed to protecting it through our compliance with this policy. 
+                Welcome to Mirainetics ("Company", "we", "our", "us"). We respect your privacy and are committed to protecting it through our compliance with this policy. 
                 This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI automation, web & mobile development, revenue cycle management, and data analytics services (collectively, the "Services").
               </p>
               <p>
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
                 <li>To contractors, service providers, and other third parties we use to support our business (e.g., cloud hosting providers necessary for our AI infrastructure).</li>
                 <li>To fulfill the purpose for which you provide it.</li>
                 <li>To comply with any court order, law, or legal process, including responding to any government or regulatory request.</li>
-                <li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of MiraiNeticsAI, our customers, or others.</li>
+                <li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of Mirainetics, our customers, or others.</li>
               </ul>
             </section>
 
@@ -111,9 +111,9 @@ export default function PrivacyPolicy() {
                 To ask questions or comment about this privacy policy and our privacy practices, please contact us at:
               </p>
               <div className="space-y-1 text-muted-foreground font-medium">
-                <p>MiraiNeticsAI</p>
+                <p>Mirainetics</p>
                 <p>Pune, Maharashtra, India</p>
-                <p>Email: <a href="mailto:miraineticsai@gmail.com" className="text-primary hover:underline">miraineticsai@gmail.com</a></p>
+                <p>Email: <a href="mailto:contact@mirainetics.com" className="text-primary hover:underline">contact@mirainetics.com</a></p>
                 <p>Phone: +91 8446049402 | +91 83780 36177</p>
               </div>
             </section>
