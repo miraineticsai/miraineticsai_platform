@@ -54,7 +54,6 @@ export default function Footer() {
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>Email: contact@mirainetics.com</p>
-              <p>Phone: +91 8446049402 | +91 83780 36177</p>
               <p>Pune, Maharashtra, India</p>
             </div>
           <div className="flex space-x-4">

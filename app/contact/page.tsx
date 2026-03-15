@@ -31,15 +31,7 @@ export default function ContactPage() {
                     <p className="text-lg font-medium text-primary">contact@mirainetics.com</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-6">
-                  <div className="p-4 bg-secondary/10 rounded-2xl text-secondary">
-                    <Phone className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Phone</p>
-                    <p className="text-lg font-medium">+91 8446049402 | +91 83780 36177</p>
-                  </div>
-                </div>
+                
                 <div className="flex items-center gap-6">
                   <div className="p-4 bg-white/5 rounded-2xl text-foreground">
                     <MapPin className="h-6 w-6" />
