@@ -114,7 +114,7 @@ export default function PrivacyPolicy() {
                 <p>Mirainetics</p>
                 <p>Pune, Maharashtra, India</p>
                 <p>Email: <a href="mailto:contact@mirainetics.com" className="text-primary hover:underline">contact@mirainetics.com</a></p>
-                <p>Phone: +91 8446049402 | +91 83780 36177</p>
+                
               </div>
             </section>
           </div>
