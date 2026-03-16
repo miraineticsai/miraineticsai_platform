@@ -51,12 +51,14 @@ Mirainetics is a premium, futuristic, and enterprise-grade company website for a
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/miraineticsai/miraineticsai.git
+   git clone https://github.com/mirainetics/mirainetics.git
    cd mirainetics-ai
    ```
 
 2. **Install dependencies:**
+
    ```bash
    pnpm install
    ```
@@ -97,7 +99,7 @@ The easiest way to deploy this project is via [Vercel](https://vercel.com/):
 2. **Connect to Vercel:**
    - Log in to your Vercel account.
    - Click **"Add New"** > **"Project"**.
-   - Import the `miraineticsai` repository.
+   - Import the `mirainetics` repository.
 3. **Configure Settings:**
    - Vercel will automatically detect Next.js.
    - Ensure the building command is `pnpm run build`.
@@ -107,7 +109,7 @@ The easiest way to deploy this project is via [Vercel](https://vercel.com/):
 
 ## 📞 Contact
 
-- **Email:** [miraineticsai@gmail.com](mailto:miraineticsai@gmail.com)
+- **Email:** [contact@mirainetics.com](mailto:contact@mirainetics.com)
 - **Phone:** +91 8446049402 | +91 83780 36177
 - **Location:** Pune, Maharashtra, India
 

@@ -67,7 +67,7 @@ export default function RootLayout({
                 "Mirainetics builds intelligent automation systems, software development solutions, and data analytics platforms for enterprise operations.",
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "miraineticsai@gmail.com",
+                email: "contact@mirainetics.com",
                 telephone: "+91-8446049402",
                 contactType: "sales",
               },
@@ -78,9 +78,9 @@ export default function RootLayout({
                 addressCountry: "IN",
               },
               sameAs: [
-                "https://twitter.com/miraineticsai",
-                "https://linkedin.com/company/miraineticsai",
-                "https://github.com/miraineticsai",
+                "https://twitter.com/mirainetics",
+                "https://linkedin.com/company/mirainetics",
+                "https://github.com/mirainetics",
               ],
             }),
           }}

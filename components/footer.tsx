@@ -53,7 +53,7 @@ export default function Footer() {
               Automating the Future of Intelligent Workflows. We build enterprise-grade AI systems that unlock operational efficiency.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>Email: miraineticsai@gmail.com</p>
+              <p>Email: contact@mirainetics.com</p>
               <p>Phone: +91 8446049402 | +91 83780 36177</p>
               <p>Pune, Maharashtra, India</p>
             </div>
