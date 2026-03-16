@@ -114,6 +114,7 @@ export default function PrivacyPolicy() {
                 <p>Mirainetics</p>
                 <p>Pune, Maharashtra, India</p>
                 <p>Email: <a href="mailto:contact@mirainetics.com" className="text-primary hover:underline">contact@mirainetics.com</a></p>
+                
               </div>
             </section>
           </div>
