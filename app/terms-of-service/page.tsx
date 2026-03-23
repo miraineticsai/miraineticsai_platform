@@ -37,7 +37,7 @@ export default function TermsOfService() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white tracking-tight">1. Acceptance of Terms</h2>
               <p>
-                By accessing and using the website and services offered by Mirainetics ("Company", "we", "us", "our"), you agree to be bound by these Terms of Service. If you do not agree to these terms, you must not access or use our Website or Services.
+                By accessing and using the website and services offered by Mirainetics (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;), you agree to be bound by these Terms of Service. If you do not agree to these terms, you must not access or use our Website or Services.
               </p>
               <p>
                 These Terms apply to all visitors, users, clients, and others who access the Website or engage us for our service offerings.

@@ -37,8 +37,8 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white tracking-tight">1. Introduction</h2>
               <p>
-                Welcome to Mirainetics ("Company", "we", "our", "us"). We respect your privacy and are committed to protecting it through our compliance with this policy. 
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI automation, web & mobile development, revenue cycle management, and data analytics services (collectively, the "Services").
+                Welcome to Mirainetics (&quot;Company&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;). We respect your privacy and are committed to protecting it through our compliance with this policy. 
+                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI automation, web & mobile development, revenue cycle management, and data analytics services (collectively, the &quot;Services&quot;).
               </p>
               <p>
                 Please read this policy carefully. If you do not agree with our policies and practices, your choice is not to use our Services. By accessing or using this Website, you agree to this Privacy Policy.
@@ -101,7 +101,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white tracking-tight">7. Changes to Our Privacy Policy</h2>
               <p>
-                It is our policy to post any changes we make to our privacy policy on this page. If we make material changes to how we treat our users' personal information, we will notify you through a notice on the Website home page or via email. The date the privacy policy was last revised is identified at the top of the page.
+                It is our policy to post any changes we make to our privacy policy on this page. If we make material changes to how we treat our users&apos; personal information, we will notify you through a notice on the Website home page or via email. The date the privacy policy was last revised is identified at the top of the page.
               </p>
             </section>
 

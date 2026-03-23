@@ -165,7 +165,7 @@ export default function DataAnalyticsPage() {
               Our data integration layer connects to legacy and modern systems
               through pre-built connectors, custom APIs, and automated ETL
               pipelines. We design data architectures that scale with your
-              organization's growth while maintaining data integrity and
+              organization&apos;s growth while maintaining data integrity and
               governance standards.
             </p>
             <div className="flex flex-wrap gap-4">

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -74,7 +74,7 @@ function ContactForm() {
 
       if (res.ok) setStatus("success");
       else setStatus("error");
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   }

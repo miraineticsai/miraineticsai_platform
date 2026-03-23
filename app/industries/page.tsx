@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
-import { Stethoscope, Banknote, ShieldCheck, ShoppingBag, Truck, Factory, Globe, Headphones, ArrowRight } from "lucide-react";
+import { Stethoscope, Banknote, ShieldCheck, Truck, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Industries We Serve | Mirainetics",
@@ -64,12 +64,12 @@ export default function IndustriesPage() {
             Global <span className="text-secondary">Industries</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our domain-agnostic AI systems are built to scale across the world's most complex enterprise sectors.
+            Our domain-agnostic AI systems are built to scale across the world&apos;s most complex enterprise sectors.
           </p>
         </section>
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-32">
-          {industries.map((ind, index) => (
+          {industries.map((ind) => (
             <div 
               key={ind.id} 
               id={ind.id}

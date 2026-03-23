@@ -14,6 +14,11 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mirainetics.com"),
+  // alternates.canonical tells Google the preferred URL for this page,
+  // resolving the "Page with redirect" GSC errors for www/http variants.
+  alternates: {
+    canonical: "https://mirainetics.com",
+  },
   icons: {
     icon: "/logo.svg",
   },

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Linkedin, Github, Cpu } from "lucide-react";
+import { Twitter, Linkedin, Github } from "lucide-react";
 
 const footerLinks = [
   {

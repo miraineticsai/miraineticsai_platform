@@ -81,10 +81,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, message: "Emails sent!" });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorWithMessage = error as { message?: string };
     console.error("Resend Error:", error);
     return NextResponse.json(
-      { success: false, message: error.message || "Internal Server Error" },
+      { success: false, message: errorWithMessage.message || "Internal Server Error" },
       { status: 500 }
     );
   }

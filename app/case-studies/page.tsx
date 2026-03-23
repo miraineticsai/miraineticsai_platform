@@ -67,7 +67,7 @@ export default function CaseStudiesPage() {
         </section>
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 space-y-16">
-          {caseStudies.map((cs, index) => (
+          {caseStudies.map((cs) => (
             <div 
               key={cs.client}
               className="glass p-8 lg:p-16 rounded-[3rem] border-white/5 relative overflow-hidden"

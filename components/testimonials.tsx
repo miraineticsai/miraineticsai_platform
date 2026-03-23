@@ -50,7 +50,7 @@ export default function Testimonials() {
               className="glass p-8 rounded-2xl border-white/5 relative flex flex-col h-full"
             >
               <Quote className="h-8 w-8 text-primary/20 absolute top-4 right-4" />
-              <p className="text-foreground/90 italic mb-8 flex-grow">"{t.quote}"</p>
+              <p className="text-foreground/90 italic mb-8 flex-grow">&quot;{t.quote}&quot;</p>
               <div>
                 <p className="font-bold text-white">{t.author}</p>
                 <p className="text-xs text-primary font-medium tracking-wider uppercase">{t.role}</p>
