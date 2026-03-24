@@ -14,14 +14,6 @@ const nextConfig: NextConfig = {
         destination: "https://mirainetics.com/:path*",
         permanent: true,
       },
-      // Redirect plain http → https (belt-and-suspenders; your host likely does this
-      // already, but having it here ensures Next.js itself never serves http content)
-      {
-        source: "/:path*",
-        has: [{ type: "header", key: "x-forwarded-proto", value: "http" }],
-        destination: "https://mirainetics.com/:path*",
-        permanent: true,
-      },
     ];
   },
 
