@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) throw new Error("RESEND_API_KEY is not set");
+  return new Resend(apiKey);
+}
 
 // Define Constants for Reusability
 const SENDER_EMAIL = "Mirainetics Support <hello@contact.mirainetics.com>";
@@ -21,6 +25,7 @@ export async function POST(req: Request) {
     }
 
     // --- 1. Admin Notification ---
+    const resend = getResend();
     const adminEmailTask = resend.emails.send({
       from: SENDER_EMAIL,
       to: ADMIN_EMAIL,
@@ -81,10 +86,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, message: "Emails sent!" });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Resend Error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Internal Server Error";
     return NextResponse.json(
-      { success: false, message: error.message || "Internal Server Error" },
+      { success: false, message: errorMessage },
       { status: 500 }
     );
   }

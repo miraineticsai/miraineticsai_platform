@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import {
   Database,
   ArrowRight,
@@ -13,17 +14,28 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Data Analytics Services | Mirainetics",
+  title: "Data Analytics & Business Intelligence",
   description:
     "Enterprise data analytics and integration services including predictive analytics, real-time dashboards, legacy system integration, and AI-driven business intelligence.",
   alternates: {
     canonical: "https://mirainetics.com/solutions/data-analytics",
   },
   openGraph: {
-    title: "Data Analytics Services | Mirainetics",
+    title: "Data Analytics & Business Intelligence | Mirainetics",
     description:
       "Enterprise data analytics and integration services including predictive analytics, real-time dashboards, and AI-driven business intelligence.",
     url: "https://mirainetics.com/solutions/data-analytics",
+    siteName: "Mirainetics",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Data Analytics Services" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Data Analytics & Business Intelligence | Mirainetics",
+    description:
+      "Enterprise data analytics with predictive AI and real-time dashboards.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -101,6 +113,12 @@ export default function DataAnalyticsPage() {
     })),
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Solutions", url: "/solutions" },
+    { name: "Data Analytics", url: "/solutions/data-analytics" },
+  ];
+
   return (
     <div className="min-h-screen">
       <script
@@ -110,6 +128,10 @@ export default function DataAnalyticsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
       />
       <Navbar />
       <main className="pt-32">
@@ -165,7 +187,7 @@ export default function DataAnalyticsPage() {
               Our data integration layer connects to legacy and modern systems
               through pre-built connectors, custom APIs, and automated ETL
               pipelines. We design data architectures that scale with your
-              organization's growth while maintaining data integrity and
+              organization&apos;s growth while maintaining data integrity and
               governance standards.
             </p>
             <div className="flex flex-wrap gap-4">

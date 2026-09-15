@@ -1,26 +1,61 @@
-import React from 'react';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import Breadcrumbs from "@/components/breadcrumbs";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata = {
-  title: 'Privacy Policy | Mirainetics',
-  description: 'Privacy Policy for Mirainetics - Automating the Future of Intelligent Workflows.',
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Privacy Policy for Mirainetics — how we collect, use, and protect your data across our AI automation and software development services.",
+  alternates: {
+    canonical: "https://mirainetics.com/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Mirainetics",
+    description:
+      "How Mirainetics collects, uses, and protects your data across our AI automation and software development services.",
+    url: "https://mirainetics.com/privacy-policy",
+    siteName: "Mirainetics",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mirainetics Privacy Policy" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Mirainetics",
+    description:
+      "How Mirainetics collects, uses, and protects your data.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function PrivacyPolicy() {
   const lastUpdated = "March 14, 2026";
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Privacy Policy", url: "/privacy-policy" },
+  ];
 
   return (
     <div className="min-h-screen bg-background pt-32 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link 
-          href="/" 
+        <Breadcrumbs items={[{ name: "Privacy Policy", href: "/privacy-policy" }]} />
+
+        <Link
+          href="/"
           className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Home
         </Link>
-        
+
         <div className="glass rounded-2xl p-8 md:p-12 border-white/10 shadow-2xl relative overflow-hidden">
           {/* Decorative gradients */}
           <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/10 blur-[100px] rounded-full -z-10" />
@@ -37,8 +72,8 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white tracking-tight">1. Introduction</h2>
               <p>
-                Welcome to Mirainetics ("Company", "we", "our", "us"). We respect your privacy and are committed to protecting it through our compliance with this policy. 
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI automation, web & mobile development, revenue cycle management, and data analytics services (collectively, the "Services").
+                Welcome to Mirainetics (&quot;Company&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;). We respect your privacy and are committed to protecting it through our compliance with this policy.
+                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI automation, web &amp; mobile development, revenue cycle management, and data analytics services (collectively, the &quot;Services&quot;).
               </p>
               <p>
                 Please read this policy carefully. If you do not agree with our policies and practices, your choice is not to use our Services. By accessing or using this Website, you agree to this Privacy Policy.
@@ -101,7 +136,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white tracking-tight">7. Changes to Our Privacy Policy</h2>
               <p>
-                It is our policy to post any changes we make to our privacy policy on this page. If we make material changes to how we treat our users' personal information, we will notify you through a notice on the Website home page or via email. The date the privacy policy was last revised is identified at the top of the page.
+                It is our policy to post any changes we make to our privacy policy on this page. If we make material changes to how we treat our users&apos; personal information, we will notify you through a notice on the Website home page or via email. The date the privacy policy was last revised is identified at the top of the page.
               </p>
             </section>
 
@@ -114,7 +149,7 @@ export default function PrivacyPolicy() {
                 <p>Mirainetics</p>
                 <p>Pune, Maharashtra, India</p>
                 <p>Email: <a href="mailto:contact@mirainetics.com" className="text-primary hover:underline">contact@mirainetics.com</a></p>
-                
+
               </div>
             </section>
           </div>

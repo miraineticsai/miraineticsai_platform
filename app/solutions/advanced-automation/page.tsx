@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import {
   Cpu,
   ArrowRight,
@@ -13,7 +14,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Advanced Automation Services | Mirainetics",
+  title: "Advanced Automation Services",
   description:
     "Enterprise automation services using AI-driven process orchestration, intelligent data extraction, and self-healing bot infrastructure for complex workflows.",
   alternates: {
@@ -24,6 +25,17 @@ export const metadata: Metadata = {
     description:
       "Enterprise automation services using AI-driven process orchestration, intelligent data extraction, and self-healing bot infrastructure.",
     url: "https://mirainetics.com/solutions/advanced-automation",
+    siteName: "Mirainetics",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Advanced Automation Services" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Advanced Automation Services | Mirainetics",
+    description:
+      "Enterprise automation with AI-driven orchestration and self-healing bots.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -101,6 +113,12 @@ export default function AdvancedAutomationPage() {
     })),
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Solutions", url: "/solutions" },
+    { name: "Advanced Automation", url: "/solutions/advanced-automation" },
+  ];
+
   return (
     <div className="min-h-screen">
       <script
@@ -110,6 +128,10 @@ export default function AdvancedAutomationPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
       />
       <Navbar />
       <main className="pt-32">

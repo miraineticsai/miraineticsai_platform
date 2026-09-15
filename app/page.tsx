@@ -1,11 +1,22 @@
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
-import Impact from "@/components/impact";
-import Technology from "@/components/technology";
-import Industries from "@/components/industries";
-import Testimonials from "@/components/testimonials";
-import CTA from "@/components/cta";
 import Footer from "@/components/footer";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://mirainetics.com",
+  },
+};
+
+const Hero = dynamic(() => import("@/components/hero"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Impact = dynamic(() => import("@/components/impact"));
+const Technology = dynamic(() => import("@/components/technology"));
+const Industries = dynamic(() => import("@/components/industries"));
+const Testimonials = dynamic(() => import("@/components/testimonials"));
+const CTA = dynamic(() => import("@/components/cta"));
 
 export default function Home() {
   return (
@@ -13,10 +24,18 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Impact />
-        <Technology />
-        <Industries />
-        <Testimonials />
+        <section aria-label="Impact Metrics">
+          <Impact />
+        </section>
+        <section aria-label="Technology Overview">
+          <Technology />
+        </section>
+        <section aria-label="Industries We Serve">
+          <Industries />
+        </section>
+        <section aria-label="Client Testimonials">
+          <Testimonials />
+        </section>
         <CTA />
       </main>
       <Footer />

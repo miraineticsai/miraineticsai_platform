@@ -3,14 +3,34 @@
 import { useState } from "react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import Breadcrumbs from "@/components/breadcrumbs";
+import { Mail, MapPin, Send } from "lucide-react";
+import { contactPageJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export default function ContactPage() {
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+  ];
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageJsonLd()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)),
+        }}
+      />
       <Navbar />
       <main className="pt-32">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
@@ -18,35 +38,39 @@ export default function ContactPage() {
                 <span className="text-primary">Touch</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-12">
-                Ready to transform your operations? Our experts are here to help you navigate the future of intelligent workflows.
+                Ready to transform your operations? Our experts are here to
+                help you navigate the future of intelligent workflows.
               </p>
-              
+
               <div className="space-y-8">
                 <div className="flex items-center gap-6">
                   <div className="p-4 bg-primary/10 rounded-2xl text-primary">
                     <Mail className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Email</p>
-                    <p className="text-lg font-medium text-primary">contact@mirainetics.com</p>
+                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                      Email
+                    </p>
+                    <a
+                      href="mailto:contact@mirainetics.com"
+                      className="text-lg font-medium text-primary hover:underline"
+                    >
+                      contact@mirainetics.com
+                    </a>
                   </div>
                 </div>
-                <div className="flex items-center gap-6">
-                  <div className="p-4 bg-secondary/10 rounded-2xl text-secondary">
-                    <Phone className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Phone</p>
-                    <p className="text-lg font-medium">+91 8446049402 | +91 83780 36177</p>
-                  </div>
-                </div>
+
                 <div className="flex items-center gap-6">
                   <div className="p-4 bg-white/5 rounded-2xl text-foreground">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Offices</p>
-                    <p className="text-lg font-medium">Pune, Maharashtra, India</p>
+                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                      Offices
+                    </p>
+                    <p className="text-lg font-medium">
+                      Pune, Maharashtra, India
+                    </p>
                   </div>
                 </div>
               </div>
@@ -64,12 +88,14 @@ export default function ContactPage() {
 }
 
 function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    
+
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
@@ -82,7 +108,7 @@ function ContactForm() {
 
       if (res.ok) setStatus("success");
       else setStatus("error");
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   }
@@ -91,9 +117,14 @@ function ContactForm() {
     return (
       <div className="text-center py-12">
         <Send className="h-16 w-16 text-primary mx-auto mb-6 animate-bounce" />
-        <h3 className="text-2xl font-display font-bold mb-4">Message Sent!</h3>
-        <p className="text-muted-foreground">Thank you for reaching out. We will get back to you at contact@mirainetics.com shortly.</p>
-        <button 
+        <h3 className="text-2xl font-display font-bold mb-4">
+          Message Sent!
+        </h3>
+        <p className="text-muted-foreground">
+          Thank you for reaching out. We will get back to you at
+          contact@mirainetics.com shortly.
+        </p>
+        <button
           onClick={() => setStatus("idle")}
           className="mt-8 text-primary font-bold hover:underline"
         >
@@ -107,20 +138,26 @@ function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium">Full Name</label>
-          <input 
+          <label htmlFor="name" className="text-sm font-medium">
+            Full Name
+          </label>
+          <input
+            id="name"
             name="name"
-            type="text" 
+            type="text"
             required
             placeholder="John Doe"
             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium">Work Email</label>
-          <input 
+          <label htmlFor="email" className="text-sm font-medium">
+            Work Email
+          </label>
+          <input
+            id="email"
             name="email"
-            type="email" 
+            type="email"
             required
             placeholder="john@company.com"
             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
@@ -128,38 +165,60 @@ function ContactForm() {
         </div>
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-medium">Company</label>
-        <input 
+        <label htmlFor="company" className="text-sm font-medium">
+          Company
+        </label>
+        <input
+          id="company"
           name="company"
-          type="text" 
+          type="text"
           placeholder="Mirainetics"
           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
         />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-medium">How can we help?</label>
-        <select name="help" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors">
-          <option value="Demo" className="bg-accent">Solution Demo</option>
-          <option value="Inquiry" className="bg-accent">Commercial Inquiry</option>
-          <option value="Partnership" className="bg-accent">Partnership</option>
-          <option value="Other" className="bg-accent">Other</option>
+        <label htmlFor="help" className="text-sm font-medium">
+          How can we help?
+        </label>
+        <select
+          id="help"
+          name="help"
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
+        >
+          <option value="Demo" className="bg-accent">
+            Solution Demo
+          </option>
+          <option value="Inquiry" className="bg-accent">
+            Commercial Inquiry
+          </option>
+          <option value="Partnership" className="bg-accent">
+            Partnership
+          </option>
+          <option value="Other" className="bg-accent">
+            Other
+          </option>
         </select>
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-medium">Message</label>
-        <textarea 
+        <label htmlFor="message" className="text-sm font-medium">
+          Message
+        </label>
+        <textarea
+          id="message"
           name="message"
-          rows={4} 
+          rows={4}
           required
           placeholder="Tell us about your automation needs..."
           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"
         ></textarea>
       </div>
-      <button 
+      <button
         disabled={status === "loading"}
         className="w-full py-4 rounded-xl bg-primary text-accent font-bold text-lg hover:scale-[1.02] transition-transform animate-glow flex items-center justify-center gap-2 disabled:opacity-50"
       >
-        {status === "loading" ? "Sending..." : (
+        {status === "loading" ? (
+          "Sending..."
+        ) : (
           <>
             <Send className="h-5 w-5" />
             Send Message
@@ -167,7 +226,9 @@ function ContactForm() {
         )}
       </button>
       {status === "error" && (
-        <p className="text-center text-red-400 text-sm mt-4">Something went wrong. Please try again.</p>
+        <p className="text-center text-red-400 text-sm mt-4">
+          Something went wrong. Please try again.
+        </p>
       )}
     </form>
   );

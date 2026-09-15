@@ -3,20 +3,33 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
+import Breadcrumbs from "@/components/breadcrumbs";
 import { Cpu, BarChart3, Database, ArrowRight, Globe } from "lucide-react";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Technology Solutions | Mirainetics",
+  title: "Enterprise Technology & Automation Solutions",
   description:
     "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
   alternates: {
     canonical: "https://mirainetics.com/solutions",
   },
   openGraph: {
-    title: "Technology Solutions | Mirainetics",
+    title: "Enterprise Technology & Automation Solutions | Mirainetics",
     description:
       "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
     url: "https://mirainetics.com/solutions",
+    siteName: "Mirainetics",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mirainetics Solutions Overview" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Enterprise Technology & Automation Solutions | Mirainetics",
+    description:
+      "Enterprise technology solutions including automation, web & mobile development, and data analytics.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -76,29 +89,39 @@ const solutions = [
 ];
 
 export default function SolutionsPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Technology Solutions",
-    description:
-      "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
-    url: "https://mirainetics.com/solutions",
-    provider: {
-      "@type": "Organization",
-      name: "Mirainetics",
-      url: "https://mirainetics.com",
-    },
-  };
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Solutions", url: "/solutions" },
+  ];
 
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            serviceJsonLd({
+              name: "Technology Solutions",
+              description:
+                "Enterprise technology solutions including advanced automation, web & mobile development, revenue cycle management, and data analytics services.",
+              url: "https://mirainetics.com/solutions",
+              serviceType: "Enterprise Solutions",
+            })
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)),
+        }}
       />
       <Navbar />
       <main className="pt-32">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <Breadcrumbs
+            items={[{ name: "Solutions", href: "/solutions" }]}
+          />
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-8">
             Technology <span className="text-primary">Solutions</span>
           </h1>
@@ -110,10 +133,12 @@ export default function SolutionsPage() {
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 pb-32">
           {solutions.map((sol, index) => (
-            <div
+            <article
               key={sol.id}
               id={sol.id}
-              className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
+              className={`flex flex-col lg:flex-row items-center gap-12 ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
             >
               <div className="lg:w-1/2 glass p-12 rounded-[2.5rem] border-white/10">
                 <div className="mb-8 p-4 bg-white/5 w-fit rounded-2xl">
@@ -165,7 +190,7 @@ export default function SolutionsPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </section>
 

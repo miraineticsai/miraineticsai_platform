@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import {
   Globe,
   ArrowRight,
@@ -13,17 +14,28 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Web & Mobile Development Services | Mirainetics",
+  title: "Web & Mobile Software Development",
   description:
     "Custom web and mobile development services including scalable web applications, modern frontend architectures, native mobile apps, and cloud-based systems.",
   alternates: {
     canonical: "https://mirainetics.com/solutions/web-mobile-development",
   },
   openGraph: {
-    title: "Web & Mobile Development Services | Mirainetics",
+    title: "Web & Mobile Software Development | Mirainetics",
     description:
       "Custom web and mobile development services including scalable web applications, modern frontend architectures, and cloud-based systems.",
     url: "https://mirainetics.com/solutions/web-mobile-development",
+    siteName: "Mirainetics",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Web & Mobile Development Services" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web & Mobile Software Development | Mirainetics",
+    description:
+      "Custom web and mobile development with modern tech stacks.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -101,6 +113,12 @@ export default function WebMobileDevelopmentPage() {
     })),
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Solutions", url: "/solutions" },
+    { name: "Web & Mobile Development", url: "/solutions/web-mobile-development" },
+  ];
+
   return (
     <div className="min-h-screen">
       <script
@@ -110,6 +128,10 @@ export default function WebMobileDevelopmentPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
       />
       <Navbar />
       <main className="pt-32">
