@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CTA from "@/components/cta";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import {
   BarChart3,
   ArrowRight,
@@ -13,17 +14,28 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Revenue Cycle Management Services | Mirainetics",
+  title: "Revenue Cycle Management (RCM) Services",
   description:
     "AI-powered revenue cycle management services including automated eligibility verification, claims processing, denial management, and payment reconciliation.",
   alternates: {
     canonical: "https://mirainetics.com/solutions/revenue-cycle-management",
   },
   openGraph: {
-    title: "Revenue Cycle Management Services | Mirainetics",
+    title: "Revenue Cycle Management (RCM) Services | Mirainetics",
     description:
       "AI-powered revenue cycle management services including automated eligibility verification, claims processing, and denial management.",
     url: "https://mirainetics.com/solutions/revenue-cycle-management",
+    siteName: "Mirainetics",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Revenue Cycle Management Services" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Revenue Cycle Management (RCM) Services | Mirainetics",
+    description:
+      "AI-powered RCM with automated claims and denial management.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -101,6 +113,12 @@ export default function RevenueCycleManagementPage() {
     })),
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Solutions", url: "/solutions" },
+    { name: "Revenue Cycle Management", url: "/solutions/revenue-cycle-management" },
+  ];
+
   return (
     <div className="min-h-screen">
       <script
@@ -110,6 +128,10 @@ export default function RevenueCycleManagementPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
       />
       <Navbar />
       <main className="pt-32">

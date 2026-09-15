@@ -1,26 +1,61 @@
-import React from 'react';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import Breadcrumbs from "@/components/breadcrumbs";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata = {
-  title: 'Terms of Service | Mirainetics',
-  description: 'Terms of Service for Mirainetics - Enterprise AI and Automation Services.',
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "Terms of Service for Mirainetics — enterprise AI automation, software development, and data analytics services.",
+  alternates: {
+    canonical: "https://mirainetics.com/terms-of-service",
+  },
+  openGraph: {
+    title: "Terms of Service | Mirainetics",
+    description:
+      "Terms governing the use of Mirainetics AI automation, software development, and data analytics services.",
+    url: "https://mirainetics.com/terms-of-service",
+    siteName: "Mirainetics",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mirainetics Terms of Service" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | Mirainetics",
+    description:
+      "Terms governing the use of Mirainetics AI automation and software development services.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function TermsOfService() {
   const lastUpdated = "March 14, 2026";
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Terms of Service", url: "/terms-of-service" },
+  ];
 
   return (
     <div className="min-h-screen bg-background pt-32 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link 
-          href="/" 
+        <Breadcrumbs items={[{ name: "Terms of Service", href: "/terms-of-service" }]} />
+
+        <Link
+          href="/"
           className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Home
         </Link>
-        
+
         <div className="glass rounded-2xl p-8 md:p-12 border-white/10 shadow-2xl relative overflow-hidden">
           {/* Decorative gradients */}
           <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-secondary/10 blur-[100px] rounded-full -z-10" />

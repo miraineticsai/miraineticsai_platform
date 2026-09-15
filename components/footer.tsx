@@ -30,6 +30,12 @@ const footerLinks = [
   },
 ];
 
+const socials = [
+  { name: "Twitter", href: "https://twitter.com", icon: Twitter },
+  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  { name: "GitHub", href: "https://github.com", icon: Github },
+];
+
 export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-white/10 bg-accent py-12 lg:py-20 mt-20">
@@ -37,62 +43,49 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center space-x-2">
-  <Image
-    src="/logo.svg"
-    alt="Mirainetics Logo"
-    width={48}
-    height={48}
-    className="animate-pulse"
-  />
-  <span className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-    Mirainetics
-  </span>
-</Link>
-            <p className="text-muted-foreground max-w-sm">
-              Automating the Future of Intelligent Workflows. We build enterprise-grade AI systems that unlock operational efficiency.
+            <Link href="/" className="flex items-center space-x-2.5">
+              <Image
+                src="/logo.svg"
+                alt="Mirainetics Logo"
+                width={40}
+                height={40}
+              />
+              <span className="text-xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                Mirainetics
+              </span>
+            </Link>
+            <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
+              Automating the Future of Intelligent Workflows. We build
+              enterprise-grade AI systems that unlock operational efficiency.
             </p>
-            <div className="space-y-2 text-sm text-muted-foreground">
-              <p>Email: contact@mirainetics.com</p>
+            <div className="space-y-1.5 text-sm text-muted-foreground">
+              <p>contact@mirainetics.com</p>
               <p>Pune, Maharashtra, India</p>
             </div>
-          <div className="flex space-x-4">
-  <Link
-    href="https://twitter.com"
-    aria-label="Visit our Twitter page"
-    className="text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
-  >
-    <Twitter className="h-5 w-5" aria-hidden="true" />
-    <span className="sr-only">Twitter</span>
-  </Link>
-
-  <Link
-    href="https://linkedin.com"
-    aria-label="Visit our LinkedIn page"
-    className="text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
-  >
-    <Linkedin className="h-5 w-5" aria-hidden="true" />
-    <span className="sr-only">LinkedIn</span>
-  </Link>
-
-  <Link
-    href="https://github.com"
-    aria-label="Visit our GitHub repository"
-    className="text-muted-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
-  >
-    <Github className="h-5 w-5" aria-hidden="true" />
-    <span className="sr-only">GitHub</span>
-  </Link>
-</div>
+            <div className="flex space-x-3">
+              {socials.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <Link
+                    key={s.name}
+                    href={s.href}
+                    aria-label={`Visit our ${s.name} page`}
+                    className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-primary"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           {/* Links Columns */}
           {footerLinks.map((column) => (
             <div key={column.title} className="space-y-4">
-             <p className="text-sm font-bold uppercase tracking-wider text-foreground">
-  {column.title}
-</p>
-              <ul className="space-y-2">
+              <p className="text-sm font-bold uppercase tracking-wider text-foreground">
+                {column.title}
+              </p>
+              <ul className="space-y-2.5">
                 {column.links.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -110,13 +103,13 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Mirainetics Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Mirainetics Inc. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link href="/privacy-policy" className="text-xs text-muted-foreground hover:text-primary">
+            <Link href="/privacy-policy" className="text-xs text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms-of-service" className="text-xs text-muted-foreground hover:text-primary">
+            <Link href="/terms-of-service" className="text-xs text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </Link>
           </div>
