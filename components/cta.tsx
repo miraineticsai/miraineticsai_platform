@@ -1,63 +1,51 @@
-"use client";
-
-import { motion } from "motion/react";
-import { ArrowRight, Sparkles } from "lucide-react";
-import Link from "next/link";
+import ContactForm from "./contact-form";
+import { Badge } from "./ui/badge";
 
 export default function CTA() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="relative glass p-12 lg:p-20 rounded-[3rem] border-white/10 text-center overflow-hidden"
-        >
-          {/* Background effects */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/15 blur-[100px] rounded-full" />
-          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary/15 blur-[100px] rounded-full" />
+    <section id="contact" className="py-20 lg:py-28 border-b border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Left Column: Heading & Messaging */}
+          <div className="lg:col-span-5 space-y-6">
+            <Badge variant="default">Start Building</Badge>
 
-          <div className="relative z-10">
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-block"
-            >
-              <Sparkles className="h-10 w-10 text-primary mb-8" />
-            </motion.div>
-
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 tracking-tight leading-tight">
-              Ready to Automate{" "}
-              <br className="hidden md:block" />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                Your Operations?
-              </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground tracking-tight leading-tight">
+              Have an AI or Automation Idea?
             </h2>
 
-            <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              Join the future of intelligent workflows. Our systems eliminate
-              manual processes and drive exponential growth.
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+              Tell us what you&apos;re trying to build or automate. We&apos;ll help you figure out the best technical approach.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto px-10 py-5 rounded-full bg-primary text-accent font-bold text-lg hover:scale-[1.03] active:scale-[0.98] transition-transform animate-glow flex items-center justify-center gap-2 group"
-              >
-                Schedule Consultation
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto px-10 py-5 rounded-full glass glass-hover font-bold text-lg transition-colors"
-              >
-                Contact Sales
-              </Link>
+            <div className="pt-4 space-y-4 border-t border-border text-xs sm:text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Direct technical consultation with founders</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span>Clear architectural roadmap & tool selection</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-indigo-500" />
+                <span>Zero sales pressure — pragmatic engineering advice</span>
+              </div>
+            </div>
+
+            <div className="pt-2 text-xs text-muted-foreground">
+              Prefer email? Reach us directly at{" "}
+              <a href="mailto:contact@mirainetics.com" className="text-primary font-semibold hover:underline">
+                contact@mirainetics.com
+              </a>
             </div>
           </div>
-        </motion.div>
+
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7">
+            <ContactForm />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,82 +1,96 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Breadcrumbs from "@/components/breadcrumbs";
-import { Mail, MapPin, Send } from "lucide-react";
-import { contactPageJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import ContactForm from "@/components/contact-form";
+import { Badge } from "@/components/ui/badge";
+import { Mail, MapPin, ArrowLeft } from "lucide-react";
+import { contactPageJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "Contact & Discuss Your Idea",
+  description:
+    "Discuss your AI product or business automation idea with Mirainetics engineers. We'll help evaluate the best technical approach.",
+  alternates: {
+    canonical: "https://mirainetics.com/contact",
+  },
+};
 
 export default function ContactPage() {
-  const breadcrumbs = [
-    { name: "Home", url: "/" },
-    { name: "Contact", url: "/contact" },
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(contactPageJsonLd()),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)),
-        }}
-      />
       <Navbar />
-      <main className="pt-32">
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
-                Get in <br />
-                <span className="text-primary">Touch</span>
+      <main className="pt-28 pb-20">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors mb-6"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </Link>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Contact Information */}
+            <div className="lg:col-span-5 space-y-6">
+              <Badge variant="default">Get in Touch</Badge>
+
+              <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight">
+                Have an AI or <br />
+                <span className="text-primary">Automation Idea?</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-12">
-                Ready to transform your operations? Our experts are here to
-                help you navigate the future of intelligent workflows.
+
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                Tell us what you&apos;re trying to build or automate. We&apos;ll help you figure out the best technical approach.
               </p>
 
-              <div className="space-y-8">
-                <div className="flex items-center gap-6">
-                  <div className="p-4 bg-primary/10 rounded-2xl text-primary">
-                    <Mail className="h-6 w-6" />
+              <div className="space-y-6 pt-4 border-t border-border">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-xl text-primary border border-primary/20 shrink-0">
+                    <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                      Email
+                    <p className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">
+                      Direct Email
                     </p>
                     <a
                       href="mailto:contact@mirainetics.com"
-                      className="text-lg font-medium text-primary hover:underline"
+                      className="text-base font-semibold text-foreground hover:text-primary transition-colors"
                     >
                       contact@mirainetics.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-6">
-                  <div className="p-4 bg-white/5 rounded-2xl text-foreground">
-                    <MapPin className="h-6 w-6" />
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-secondary rounded-xl text-foreground border border-border shrink-0">
+                    <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                      Offices
+                    <p className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">
+                      Location
                     </p>
-                    <p className="text-lg font-medium">
+                    <p className="text-base font-semibold text-foreground">
                       Pune, Maharashtra, India
                     </p>
                   </div>
                 </div>
               </div>
+
+              <div className="bg-secondary/70 border border-border rounded-xl p-5 space-y-2 text-xs text-muted-foreground">
+                <span className="font-bold text-foreground block text-sm">Direct Founder Communication</span>
+                <p>You work directly with our AI product and automation engineers — no sales reps or middle layers.</p>
+              </div>
             </div>
 
-            <div className="glass p-8 lg:p-12 rounded-[2.5rem] border-white/10">
+            {/* Form */}
+            <div className="lg:col-span-7">
               <ContactForm />
             </div>
           </div>
@@ -84,152 +98,5 @@ export default function ContactPage() {
       </main>
       <Footer />
     </div>
-  );
-}
-
-function ContactForm() {
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("loading");
-
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (res.ok) setStatus("success");
-      else setStatus("error");
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  if (status === "success") {
-    return (
-      <div className="text-center py-12">
-        <Send className="h-16 w-16 text-primary mx-auto mb-6 animate-bounce" />
-        <h3 className="text-2xl font-display font-bold mb-4">
-          Message Sent!
-        </h3>
-        <p className="text-muted-foreground">
-          Thank you for reaching out. We will get back to you at
-          contact@mirainetics.com shortly.
-        </p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="mt-8 text-primary font-bold hover:underline"
-        >
-          Send another message
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium">
-            Full Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            placeholder="John Doe"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium">
-            Work Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="john@company.com"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
-          />
-        </div>
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="company" className="text-sm font-medium">
-          Company
-        </label>
-        <input
-          id="company"
-          name="company"
-          type="text"
-          placeholder="Mirainetics"
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
-        />
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="help" className="text-sm font-medium">
-          How can we help?
-        </label>
-        <select
-          id="help"
-          name="help"
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
-        >
-          <option value="Demo" className="bg-accent">
-            Solution Demo
-          </option>
-          <option value="Inquiry" className="bg-accent">
-            Commercial Inquiry
-          </option>
-          <option value="Partnership" className="bg-accent">
-            Partnership
-          </option>
-          <option value="Other" className="bg-accent">
-            Other
-          </option>
-        </select>
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="message" className="text-sm font-medium">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          required
-          placeholder="Tell us about your automation needs..."
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"
-        ></textarea>
-      </div>
-      <button
-        disabled={status === "loading"}
-        className="w-full py-4 rounded-xl bg-primary text-accent font-bold text-lg hover:scale-[1.02] transition-transform animate-glow flex items-center justify-center gap-2 disabled:opacity-50"
-      >
-        {status === "loading" ? (
-          "Sending..."
-        ) : (
-          <>
-            <Send className="h-5 w-5" />
-            Send Message
-          </>
-        )}
-      </button>
-      {status === "error" && (
-        <p className="text-center text-red-400 text-sm mt-4">
-          Something went wrong. Please try again.
-        </p>
-      )}
-    </form>
   );
 }
