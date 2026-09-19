@@ -1,19 +1,15 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { organizationJsonLd, websiteJsonLd, serviceJsonLd } from "@/lib/seo";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-  display: "swap",
-});
+export const viewport: Viewport = {
+  themeColor: "#030712",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mirainetics.com"),
@@ -22,22 +18,27 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
   title: {
-    default: "Mirainetics | Automating the Future of Intelligent Workflows",
-    template: "%s | Mirainetics",
+    default: "Mirainetics | Build AI Products. Automate Your Business.",
+    template: "%s | Mirainetics — AI Products & Automation",
   },
   description:
-    "Mirainetics builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.",
+    "Mirainetics builds AI-powered products, intelligent agents, RAG applications, and business automations. From WhatsApp bots and social media workflows to custom LLM engineering.",
   keywords: [
-    "AI Automation",
-    "Workflow Intelligence",
-    "Enterprise AI Solutions",
-    "Robotic Process Automation",
-    "Intelligent Workflows",
-    "Data Analytics Platform",
-    "Revenue Cycle Management Automation",
-    "Custom Software Engineering",
+    "AI Products",
+    "AI Product Development",
+    "AI Engineering",
+    "Business Automation Studio",
+    "RAG Applications",
+    "Custom AI Agents",
+    "WhatsApp AI Bot",
+    "Slack AI Assistant",
+    "Social Media Automation Workflow",
+    "Lead Qualification Automation",
+    "LLM Integration Services",
     "Mirainetics",
   ],
   category: "technology",
@@ -51,6 +52,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -60,9 +62,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Mirainetics | Automating the Future of Intelligent Workflows",
+    title: "Mirainetics | Build AI Products. Automate Your Business.",
     description:
-      "Mirainetics builds intelligent automation systems that eliminate manual workflows across industries.",
+      "Mirainetics builds AI-powered products, intelligent agents, RAG applications, and business automations.",
     url: "https://mirainetics.com",
     siteName: "Mirainetics",
     images: [
@@ -70,7 +72,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mirainetics — AI Automation Platform",
+        alt: "Mirainetics — AI Products & Business Automation Studio",
       },
     ],
     locale: "en_US",
@@ -78,9 +80,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mirainetics | Automating the Future of Intelligent Workflows",
+    title: "Mirainetics | Build AI Products. Automate Your Business.",
     description:
-      "Mirainetics builds intelligent automation systems that eliminate manual workflows across industries.",
+      "Mirainetics builds AI-powered products, intelligent agents, RAG applications, and business automations.",
     site: "@mirainetics",
     creator: "@mirainetics",
     images: ["/og-image.png"],
@@ -93,24 +95,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className={cn("dark", "font-sans")} suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased mesh-background min-h-screen text-foreground`}
+        className="font-sans antialiased bg-background text-foreground min-h-screen"
         suppressHydrationWarning
       >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd()),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteJsonLd()),
-          }}
-        />
-        {children}
+        <ThemeProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationJsonLd()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(websiteJsonLd()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(serviceJsonLd()),
+            }}
+          />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

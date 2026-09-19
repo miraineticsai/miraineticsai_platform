@@ -1,168 +1,162 @@
 "use client";
 
-import { motion } from "motion/react";
-import { ArrowRight, Play, Cpu, TrendingUp, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "motion/react";
+import { ArrowRight, Bot, Cpu, Database, MessageSquare, Workflow, Zap, ShieldCheck } from "lucide-react";
+import { Button } from "./ui/button";
 
-const barData = [30, 60, 45, 90, 65, 80, 50, 85, 40, 70, 55, 95];
+const typingPhrases = [
+  "Build AI Products.",
+  "Automate Workflows.",
+  "Deploy AI Agents.",
+  "Streamline Operations.",
+];
 
 export default function Hero() {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = typingPhrases[phraseIndex];
+    const typingSpeed = isDeleting ? 40 : 80;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setText(currentPhrase.substring(0, text.length + 1));
+        if (text.length + 1 === currentPhrase.length) {
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        setText(currentPhrase.substring(0, text.length - 1));
+        if (text.length - 1 === 0) {
+          setIsDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % typingPhrases.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, phraseIndex]);
+
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl -z-10 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 blur-[120px] rounded-full" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/15 blur-[120px] rounded-full" />
+    <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-28 overflow-hidden border-b border-border bg-background">
+      {/* Background Glow Decor */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl -z-10 pointer-events-none opacity-50">
+        <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-blue-600/15 blur-[140px] rounded-full" />
+        <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-purple-600/10 blur-[140px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-4xl lg:max-w-5xl mx-auto text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            Next-Gen AI Automation
-          </span>
+          {/* Badge */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs sm:text-sm font-semibold mb-8 cursor-default shadow-sm"
+          >
+            <ShieldCheck className="h-4 w-4" />
+            <span>AI Engineering + Product Studio</span>
+          </motion.div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold mb-8 leading-[1.08] tracking-tight">
-            Automating the Future of{" "}
-            <br className="hidden md:block" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-secondary">
-              Intelligent Workflows
+          {/* Large Hero Headline with Enhanced Font Style & Typing Effect */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold text-foreground tracking-tight leading-[1.06] mb-8 min-h-[4rem] sm:min-h-[5.5rem] lg:min-h-[7rem]">
+            <span className="text-foreground font-black">{text}</span>
+            <span className="inline-block w-1.5 h-10 sm:h-14 lg:h-20 ml-1.5 bg-primary animate-pulse align-middle rounded-sm" />
+            <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-400 block mt-2 font-black">
+              Automate Your Business.
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-            AI-powered automation systems that eliminate manual processes
-            and unlock operational efficiency for enterprise-scale operations.
+          {/* Supporting Copy */}
+          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto font-normal">
+            We design and build AI-powered products, intelligent workflows and business automations that reduce repetitive work and help teams move faster.
           </p>
 
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/solutions"
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary text-accent font-bold flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98] transition-transform animate-glow"
-            >
-              Explore Solutions
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto px-8 py-4 rounded-full glass glass-hover font-bold flex items-center justify-center gap-2 transition-colors"
-            >
-              <Play className="h-4 w-4 fill-current" />
-              Book Demo
-            </Link>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+              <Button asChild size="lg" className="w-full sm:w-auto text-base px-8 py-6 shadow-xl shadow-primary/25 font-bold">
+                <Link href="/contact" className="flex items-center justify-center gap-2">
+                  Discuss Your Idea
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-base px-8 py-6 font-semibold">
+                <Link href="#automation">See What We Build</Link>
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
 
-        {/* Dashboard Preview */}
+        {/* Technical AI + Automation Workflow Visual */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-20 relative"
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-10 max-w-5xl mx-auto"
         >
-          <div className="relative glass rounded-2xl p-2 border-white/10 overflow-hidden shadow-2xl shadow-primary/5">
-            <div className="bg-accent/80 rounded-xl overflow-hidden aspect-[16/9] flex items-center justify-center border border-white/5">
-              <div className="w-full h-full p-4 md:p-8 flex flex-col relative z-10">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                      <Cpu className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold">Automation Engine</p>
-                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">v2.4.0 High-Active</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-glow" />
-                    <div className="w-2 h-2 rounded-full bg-white/10" />
-                    <div className="w-2 h-2 rounded-full bg-white/10" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 flex-grow">
-                  {/* Chart */}
-                  <div className="col-span-2 space-y-4">
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="flex justify-between items-end mb-4">
-                        <p className="text-[10px] text-muted-foreground font-bold uppercase">Efficiency Index</p>
-                        <p className="text-xl font-display font-bold text-primary">+34%</p>
-                      </div>
-                      <div className="flex items-end gap-1 h-20">
-                        {barData.map((h, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ height: 0 }}
-                            animate={{ height: `${h}%` }}
-                            transition={{ delay: i * 0.04 + 0.5, duration: 0.8, ease: "easeOut" }}
-                            className="flex-1 bg-gradient-to-t from-primary/10 to-primary rounded-t-sm"
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                        <TrendingUp className="h-4 w-4 text-secondary mb-2" />
-                        <p className="text-[10px] text-muted-foreground font-bold uppercase">Checks</p>
-                        <p className="text-lg font-display font-bold">384,102</p>
-                      </div>
-                      <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                        <Clock className="h-4 w-4 text-primary mb-2" />
-                        <p className="text-[10px] text-muted-foreground font-bold uppercase">Uptime</p>
-                        <p className="text-lg font-display font-bold">99.98%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Decision Log */}
-                  <div className="bg-white/5 rounded-xl border border-white/5 p-4 flex flex-col">
-                    <p className="text-[10px] text-muted-foreground font-bold uppercase mb-4">AI Decision Log</p>
-                    <div className="space-y-3 flex-grow overflow-hidden">
-                      {[1, 2, 3, 4, 5].map((item) => (
-                        <div key={item} className="flex items-center gap-3 border-b border-white/5 pb-2">
-                          <div className="w-1 h-1 rounded-full bg-primary" />
-                          <div className="flex-grow h-1 bg-white/10 rounded-full" />
-                          <div className="w-4 h-1 bg-primary/40 rounded-full" />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-white/10 text-center">
-                      <p className="text-[10px] font-bold text-primary">SCANNING SECURE_CORE...</p>
-                    </div>
-                  </div>
-                </div>
+          <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-2xl transition-all duration-300 hover:border-primary/40">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                </span>
+                <span className="text-xs font-mono font-semibold uppercase text-muted-foreground tracking-wider">
+                  Live AI & Automation Workflow Architecture
+                </span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-accent/80 pointer-events-none" />
+              <span className="text-xs font-mono text-primary bg-primary/10 px-2.5 py-0.5 rounded-full font-medium border border-primary/20">
+                End-to-End Pipeline
+              </span>
+            </div>
+
+            {/* Workflow Pipeline Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-3 sm:gap-4 relative">
+              {[
+                { step: "1. User Trigger", detail: "WhatsApp / Slack / Web", icon: MessageSquare, color: "text-blue-500" },
+                { step: "2. AI Agent", detail: "RAG / Intent / LLM", icon: Bot, color: "text-indigo-500" },
+                { step: "3. Business Logic", detail: "Rules & Validation", icon: Cpu, color: "text-cyan-500" },
+                { step: "4. Automation Engine", detail: "Orchestration & Webhooks", icon: Workflow, color: "text-amber-500" },
+                { step: "5. APIs & Tools", detail: "REST / GraphQL / Services", icon: Zap, color: "text-emerald-500" },
+                { step: "6. System Action", detail: "CRM / DB / Notification", icon: Database, color: "text-violet-500" },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                    className="bg-secondary/60 border border-border hover:border-primary/40 rounded-xl p-4 flex flex-col items-center text-center transition-all cursor-default"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-foreground mb-3 shadow-sm">
+                      <Icon className={`h-5 w-5 ${item.color}`} />
+                    </div>
+                    <div className="text-xs font-semibold text-foreground">{item.step}</div>
+                    <div className="text-[11px] text-muted-foreground mt-1">{item.detail}</div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Visual Footer Note */}
+            <div className="mt-6 pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between text-xs text-muted-foreground gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span>Deterministic reliability + LLM intelligence</span>
+              </div>
+              <span className="font-mono text-[11px]">Production ready architecture</span>
             </div>
           </div>
-
-          {/* Floating UI Elements */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-10 -right-10 glass p-4 rounded-xl border-white/20 hidden md:block"
-          >
-            <div className="text-left">
-              <p className="text-[10px] text-primary font-bold uppercase">Accuracy</p>
-              <p className="text-2xl font-display font-bold">99.8%</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -bottom-10 -left-10 glass p-4 rounded-xl border-white/20 hidden md:block"
-          >
-            <div className="text-left">
-              <p className="text-[10px] text-secondary font-bold uppercase">Processed</p>
-              <p className="text-2xl font-display font-bold">1.2M+</p>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

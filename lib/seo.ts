@@ -5,22 +5,34 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Mirainetics",
+    legalName: "Mirainetics",
     url: baseUrl,
     logo: `${baseUrl}/logo.svg`,
     description:
-      "Mirainetics builds intelligent automation systems, software development solutions, and data analytics platforms for enterprise operations.",
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: "contact@mirainetics.com",
-      telephone: "+91-8446049402",
-      contactType: "sales",
-    },
+      "Mirainetics builds AI-powered products, intelligent agents, RAG applications, and business automations.",
+    email: "contact@mirainetics.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Pune",
       addressRegion: "Maharashtra",
       addressCountry: "IN",
     },
+    knowsAbout: [
+      "AI Product Engineering",
+      "AI Engineering",
+      "Business Automation",
+      "RAG Applications",
+      "LLM Integrations",
+      "AI Agents",
+      "WhatsApp Bots",
+      "Slack Bots",
+      "Lead Qualification Automation",
+      "Social Media Automation",
+      "CRM Routing",
+      "Web Development",
+      "Mobile App Development",
+      
+    ],
     sameAs: [
       "https://twitter.com/mirainetics",
       "https://linkedin.com/company/mirainetics",
@@ -36,77 +48,57 @@ export function websiteJsonLd() {
     name: "Mirainetics",
     url: baseUrl,
     description:
-      "AI-powered automation systems that eliminate manual processes and unlock operational efficiency.",
+      "Build AI Products. Automate Your Business. We design and build AI-powered products and practical business automations.",
     publisher: {
       "@type": "Organization",
       name: "Mirainetics",
       url: baseUrl,
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${baseUrl}/search?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
-export function serviceJsonLd({
-  name,
-  description,
-  url,
-  serviceType,
-}: {
-  name: string;
-  description: string;
-  url: string;
-  serviceType: string;
-}) {
+export function serviceJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name,
+    name: "AI Products & Business Automation",
     provider: {
       "@type": "Organization",
       name: "Mirainetics",
       url: baseUrl,
     },
-    description,
-    serviceType,
-    url,
+    description:
+      "Engineering practical AI products, intelligent agents, RAG pipelines, and automated business workflows.",
     areaServed: {
       "@type": "Country",
       name: "Global",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Mirainetics Solutions",
+      name: "Mirainetics Solutions Catalog",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Advanced Automation",
+            name: "AI Products & Applications",
+            description: "AI assistants, RAG knowledge-base apps, and internal tools.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Web & Mobile Development",
+            name: "AI Engineering & LLM Systems",
+            description: "LLM integrations, vector search, tool calling, and AI backend APIs.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Data Analytics & Integration",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Revenue Cycle Management",
+            name: "Business Process Automation",
+            description: "WhatsApp bots, Slack assistants, social media automation, and CRM routing.",
           },
         },
       ],
@@ -115,33 +107,18 @@ export function serviceJsonLd({
 }
 
 export function faqJsonLd(
-  faqs: { question: string; answer: string }[]
+  faqs: { q: string; a: string }[]
 ) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.question,
+      name: faq.q,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: faq.a,
       },
-    })),
-  };
-}
-
-export function breadcrumbJsonLd(
-  items: { name: string; url: string }[]
-) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: `${baseUrl}${item.url}`,
     })),
   };
 }
@@ -157,63 +134,6 @@ export function contactPageJsonLd() {
       name: "Mirainetics",
       url: baseUrl,
       email: "contact@mirainetics.com",
-      telephone: "+91-8446049402",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Pune",
-        addressRegion: "Maharashtra",
-        addressCountry: "IN",
-      },
-    },
-  };
-}
-
-export function caseStudyJsonLd({
-  title,
-  description,
-  url,
-  domain,
-}: {
-  title: string;
-  description: string;
-  url: string;
-  domain: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description,
-    url,
-    author: {
-      "@type": "Organization",
-      name: "Mirainetics",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Mirainetics",
-      url: baseUrl,
-    },
-    about: {
-      "@type": "Thing",
-      name: domain,
-    },
-  };
-}
-
-export function aboutPageJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "About Mirainetics",
-    url: `${baseUrl}/about`,
-    mainEntity: {
-      "@type": "Organization",
-      name: "Mirainetics",
-      url: baseUrl,
-      description:
-        "Mirainetics builds intelligent automation systems that eliminate manual workflows across industries using AI, automation, and data intelligence.",
-      foundingDate: "2024",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Pune",
