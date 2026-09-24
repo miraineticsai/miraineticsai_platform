@@ -4,33 +4,27 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-space-grotesk), var(--font-sans), sans-serif;
+  --font-heading: var(--font-space-grotesk), var(--font-sans), sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -38,97 +32,306 @@
   --radius-lg: 0.75rem;
   --radius-md: calc(0.75rem - 2px);
   --radius-sm: calc(0.75rem - 4px);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   MIRAINETICS OFFICIAL BRAND TOKEN SYSTEM
+   Purple → Violet → Blue → Cyan
+   ───────────────────────────────────────────────────────────── */
+
 :root {
-  /* LIGHT THEME (Snow White) */
+  /* === PRIMARY BRAND COLORS === */
+  --mn-purple:       #9950FF;
+  --mn-violet:       #7B5CFF;
+  --mn-blue:         #4D70FF;
+  --mn-digital-blue: #4778FF;
+  --mn-cyan:         #16B8D4;
+
+  /* === BRAND GRADIENT === */
+  --mn-gradient: linear-gradient(100deg, #9950FF 0%, #7B5CFF 30%, #4D70FF 70%, #16B8D4 100%);
+
+  /* === LIGHT BACKGROUNDS === */
+  --mn-white:       #FFFFFF;
+  --mn-cloud:       #F7F8FC;
+  --mn-soft-purple: #FAF7FF;
+  --mn-soft-blue:   #F5F7FF;
+  --mn-soft-cyan:   #F2FCFE;
+
+  /* === DARK SYSTEM === */
+  --mn-dark:           #10152E;
+  --mn-dark-secondary: #191F3D;
+  --mn-footer:         #0C1024;
+
+  /* === TEXT === */
+  --mn-text:           #151A2E;
+  --mn-text-secondary: #4F5870;
+  --mn-text-muted:     #7B8499;
+
+  /* === BORDERS === */
+  --mn-border:        #E5E8F0;
+  --mn-border-strong: #D8DCEC;
+  --mn-purple-border: #DCCEFF;
+  --mn-blue-border:   #D4DDFF;
+  --mn-cyan-border:   #C7F1F6;
+
+  /* === FUNCTIONAL === */
+  --mn-success: #16A34A;
+  --mn-warning: #D97706;
+  --mn-error:   #DC3545;
+  --mn-info:    #2563EB;
+
+  /* ── Tailwind semantic tokens (LIGHT MODE = default) ── */
   --background: #FFFFFF;
-  --foreground: #061A24;
+  --foreground: #151A2E;
 
   --card: #FFFFFF;
-  --card-foreground: #061A24;
+  --card-foreground: #151A2E;
 
   --popover: #FFFFFF;
-  --popover-foreground: #061A24;
+  --popover-foreground: #151A2E;
 
-  --primary: #3B82F6;
+  --primary: #9950FF;
   --primary-foreground: #FFFFFF;
 
-  --secondary: #F1F5F9;
-  --secondary-foreground: #061A24;
+  --secondary: #F7F8FC;
+  --secondary-foreground: #151A2E;
 
-  --muted: #F8FAFC;
-  --muted-foreground: #475569;
+  --muted: #F7F8FC;
+  --muted-foreground: #4F5870;
 
-  --accent: #EFF6FF;
-  --accent-foreground: #1D4ED8;
+  --accent: #FAF7FF;
+  --accent-foreground: #7B3FE4;
 
-  --destructive: #EF4444;
+  --destructive: #DC3545;
   --destructive-foreground: #FFFFFF;
 
-  --border: #E2E8F0;
-  --input: #E2E8F0;
-  --ring: #3B82F6;
+  --border: #E5E8F0;
+  --input: #E5E8F0;
+  --ring: #9950FF;
 }
 
 .dark {
-  /* DARK THEME (Rich Deep Black) */
-  --background: #030712;
-  --foreground: #F9FAFB;
+  /* ── Tailwind semantic tokens (DARK MODE) ── */
+  --background: #10152E;
+  --foreground: #E9ECF7;
 
-  --card: #090D16;
-  --card-foreground: #F9FAFB;
+  --card: #191F3D;
+  --card-foreground: #E9ECF7;
 
-  --popover: #0D1322;
-  --popover-foreground: #F9FAFB;
+  --popover: #191F3D;
+  --popover-foreground: #E9ECF7;
 
-  --primary: #3B82F6;
+  --primary: #9950FF;
   --primary-foreground: #FFFFFF;
 
-  --secondary: #111827;
-  --secondary-foreground: #F9FAFB;
+  --secondary: #202A55;
+  --secondary-foreground: #E9ECF7;
 
-  --muted: #0F172A;
-  --muted-foreground: #9CA3AF;
+  --muted: #151C35;
+  --muted-foreground: #AAB1C5;
 
-  --accent: #1E293B;
-  --accent-foreground: #60A5FA;
+  --accent: #202A55;
+  --accent-foreground: #C4AEFF;
 
-  --destructive: #EF4444;
+  --destructive: #DC3545;
   --destructive-foreground: #FFFFFF;
 
-  --border: #1F2937;
-  --input: #1F2937;
-  --ring: #3B82F6;
+  --border: rgba(255,255,255,0.10);
+  --input: rgba(255,255,255,0.08);
+  --ring: #9950FF;
 }
 
+/* ─── Keyframes ──────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(1deg); }
+  66% { transform: translateY(-4px) rotate(-1deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(153, 80, 255, 0); }
+  50% { box-shadow: 0 0 24px 6px rgba(153, 80, 255, 0.15); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes data-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleX(0.6); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+/* ─── Animation utilities ────────────────────────────────── */
+
+.animate-float       { animation: float 4s ease-in-out infinite; }
+.animate-float-slow  { animation: float-slow 6s ease-in-out infinite; }
+.animate-pulse-glow  { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-spin-slow   { animation: spin-slow 3s linear infinite; }
+.animate-blink       { animation: blink-cursor 1.1s step-end infinite; }
+.animate-slide-in-up { animation: slide-in-up 0.4s ease-out forwards; }
+.animate-data-pulse  { animation: data-pulse 2s ease-in-out infinite; }
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* ─── Brand utilities ────────────────────────────────────── */
+
+/* The core brand gradient */
+.mn-gradient {
+  background: var(--mn-gradient);
+}
+
+.mn-gradient-text {
+  background: var(--mn-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mn-gradient-border {
+  border-image: var(--mn-gradient) 1;
+}
+
+/* Section backgrounds following brand guide */
+.section-white       { background-color: #FFFFFF; }
+.section-cloud       { background-color: #F7F8FC; }
+.section-soft-purple { background-color: #FAF7FF; }
+.section-soft-blue   { background-color: #F5F7FF; }
+.section-soft-cyan   { background-color: #F2FCFE; }
+.section-dark        { background-color: #10152E; }
+.section-footer      { background-color: #0C1024; }
+
+/* AI / Purple service accent */
+.accent-ai {
+  --service-accent: #9950FF;
+  --service-accent-bg: #FAF7FF;
+  --service-accent-border: #DCCEFF;
+  --service-accent-badge-bg: #F0E7FF;
+  --service-accent-badge-text: #7B3FE4;
+}
+
+/* Software / Blue service accent */
+.accent-software {
+  --service-accent: #4D70FF;
+  --service-accent-bg: #F5F7FF;
+  --service-accent-border: #D4DDFF;
+  --service-accent-badge-bg: #E8EDFF;
+  --service-accent-badge-text: #3456D3;
+}
+
+/* Automation / Cyan service accent */
+.accent-automation {
+  --service-accent: #16B8D4;
+  --service-accent-bg: #F2FCFE;
+  --service-accent-border: #C7F1F6;
+  --service-accent-badge-bg: #DDF8FC;
+  --service-accent-badge-text: #087F94;
+}
+
+/* Premium card */
+.mn-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E8F0;
+  box-shadow: 0 8px 30px rgba(21, 26, 46, 0.06);
+  border-radius: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.mn-card:hover {
+  border-color: #CFC4FF;
+  box-shadow: 0 12px 40px rgba(123, 92, 255, 0.12);
+}
+
+.mn-card-automation:hover {
+  box-shadow: 0 12px 40px rgba(22, 184, 212, 0.10);
+}
+
+/* Grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(153, 80, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(153, 80, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Dot grid */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(153, 80, 255, 0.10) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── Base styles ────────────────────────────────────────── */
+
 @layer base {
-  * {
-    border-color: var(--border);
-  }
-  
+  * { border-color: var(--border); }
+
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-feature-settings: "rlig" 1, "calt" 1;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   ::selection {
-    background-color: rgba(59, 130, 246, 0.25);
+    background-color: rgba(153, 80, 255, 0.18);
     color: inherit;
   }
+
+  :focus-visible {
+    outline: 2px solid var(--mn-purple);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Links */
+  a { color: var(--mn-blue); }
+  a:hover { color: var(--mn-violet); }
 }
 
-/* Reduced motion preference */
+/* ─── Reduced motion ─────────────────────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
+  *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
