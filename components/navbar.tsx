@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
@@ -27,92 +27,165 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-200 border-b ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md border-border shadow-md py-3"
-          : "bg-background/80 backdrop-blur-sm border-transparent py-4"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-10">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <Image
-              src="/logo.svg"
-              alt="Mirainetics Logo"
-              width={36}
-              height={36}
-              className="w-9 h-9 transition-transform group-hover:scale-105"
-              priority
-            />
-            <span className="text-xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 tracking-tight">
-              Mirainetics
-            </span>
-          </Link>
-
-          {/* Desktop Single Page Links */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-secondary rounded-md transition-colors"
+    <>
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 dark:bg-[#10152E]/95 backdrop-blur-xl border-b border-[#E5E8F0] dark:border-white/10 shadow-sm py-3"
+            : "bg-white/80 dark:bg-transparent backdrop-blur-sm border-b border-transparent py-4"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-10">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2.5 group" aria-label="Mirainetics home">
+              <Image
+                src="/logo.svg"
+                alt="Mirainetics Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+                priority
+              />
+              <span
+                className="text-[1.1rem] font-display font-bold tracking-tight"
+                style={{
+                  background: "var(--mn-gradient)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+                Mirainetics
+              </span>
+            </Link>
 
-          {/* Right Action & Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-3">
-            <ThemeToggle />
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Button asChild size="sm">
-                <Link href="/contact">Discuss Your Idea</Link>
-              </Button>
-            </motion.div>
-          </div>
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-0.5" aria-label="Main navigation">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="px-3.5 py-2 text-sm font-medium text-[#4F5870] hover:text-[#151A2E] dark:text-[#AAB1C5] dark:hover:text-white hover:bg-[#F7F8FC] dark:hover:bg-white/5 rounded-lg transition-all duration-200"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
 
-          {/* Mobile Right Controls */}
-          <div className="flex md:hidden items-center space-x-2">
-            <ThemeToggle />
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-              className="p-2 text-foreground/80 hover:text-foreground rounded-lg hover:bg-secondary transition-colors"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {/* Desktop CTA */}
+            <div className="hidden md:flex items-center space-x-2.5">
+              <ThemeToggle />
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  asChild
+                  size="sm"
+                  className="font-semibold rounded-lg shadow-md"
+                  style={{ background: "var(--mn-gradient)", border: "none", color: "#fff" }}
+                >
+                  <Link href="/contact">Discuss Your Idea</Link>
+                </Button>
+              </motion.div>
+            </div>
+
+            {/* Mobile Controls */}
+            <div className="flex md:hidden items-center space-x-1.5">
+              <ThemeToggle />
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+                className="p-2 text-[#4F5870] hover:text-[#151A2E] dark:text-[#AAB1C5] dark:hover:text-white rounded-lg hover:bg-[#F7F8FC] dark:hover:bg-white/5 transition-colors"
+              >
+                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Navigation Drawer */}
-      {isOpen && (
-        <div className="md:hidden border-b border-border bg-card px-4 pt-3 pb-6 space-y-3 mt-3 shadow-xl">
-          <div className="space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 text-base font-semibold text-foreground hover:bg-secondary rounded-md"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-          <div className="pt-2 border-t border-border">
-            <Button asChild className="w-full">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
-                Discuss Your Idea
-              </Link>
-            </Button>
-          </div>
-        </div>
-      )}
-    </header>
+      {/* Mobile Backdrop */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed top-[3.75rem] left-0 right-0 z-50 md:hidden bg-white dark:bg-[#10152E] border-b border-[#E5E8F0] dark:border-white/10 shadow-xl"
+          >
+            <nav className="max-w-7xl mx-auto px-4 py-4 space-y-1" aria-label="Mobile navigation">
+              {navLinks.map((link, idx) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.04, duration: 0.2 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={closeMenu}
+                    className="flex items-center px-4 py-3 text-base font-semibold text-[#151A2E] dark:text-[#E9ECF7] hover:text-[#9950FF] hover:bg-[#FAF7FF] dark:hover:bg-white/5 rounded-xl transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              <div className="pt-3 pb-1 border-t border-[#E5E8F0] dark:border-white/10 mt-2">
+                <Button
+                  asChild
+                  className="w-full font-semibold"
+                  style={{ background: "var(--mn-gradient)", border: "none", color: "#fff" }}
+                >
+                  <Link href="/contact" onClick={closeMenu}>
+                    Discuss Your Idea
+                  </Link>
+                </Button>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

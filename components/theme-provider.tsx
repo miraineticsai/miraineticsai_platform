@@ -13,8 +13,9 @@ interface ThemeContextType {
 const ThemeContext = React.createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = React.useState<Theme>("dark");
-  const [resolvedTheme, setResolvedTheme] = React.useState<"dark" | "light">("dark");
+  // Default: "light" — per brand guide (white-first design)
+  const [theme, setThemeState] = React.useState<Theme>("light");
+  const [resolvedTheme, setResolvedTheme] = React.useState<"dark" | "light">("light");
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -57,9 +58,9 @@ export function useTheme() {
   const context = React.useContext(ThemeContext);
   if (!context) {
     return {
-      theme: "dark" as Theme,
+      theme: "light" as Theme,
       setTheme: () => {},
-      resolvedTheme: "dark" as "dark" | "light",
+      resolvedTheme: "light" as "dark" | "light",
     };
   }
   return context;
